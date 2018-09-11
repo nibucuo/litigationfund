@@ -1,9 +1,6 @@
 <template>
 	<div class="hello">
 		<h1>{{ msg }}</h1>
-		<h2>username:{{$route.params.username}}</h2>
-		<h2>password:{{$route.params.password}}</h2>
-		<router-view/>
 	</div>
 </template>
 <script>
@@ -11,7 +8,7 @@
 		name: "Hi",
 		data () {
 			return {
-				msg: "Hi iam fine and you?"
+				msg: "i am Hi html?"
 			}
 		}
 	}
