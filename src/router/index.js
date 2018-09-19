@@ -1,34 +1,55 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Hi from '@/components/Hi'
-import Hi1 from '@/components/Hi1'
-import Hi2 from '@/components/Hi2'
 import Params from '@/components/Params'
+import Hello from '@/components/page/Hello'
 import TopNav from '@/components/common/TopNav'
-import Error from '@/components/Error'
+import AboutUs from '@/components/page/AboutUs'
+import Funding from '@/components/page/Funding'
+import Coverage from '@/components/page/Coverage'
+import Scenarios from '@/components/page/Scenarios'
+import ContactUs from '@/components/page/ContactUs'
+import Contact from '@/components/page/Contact'
+import InforList from '@/components/page/InforList'
+import InforDetail from '@/components/page/InforDetail'
+import Error from '@/components/page/Error'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  linkExactActiveClass:"active",
+  linkActiveClass: "active",
   routes: [
     {
-      path: '/',
+      path: '/index',
       component: Hello
     },
     {
-      path: '/Hi1',
-      component: Hi1
+      path: '/AboutUs',
+      component: AboutUs
     },
     {
-      path: '/Hi2',
-      component: Hi2
+      path: '/Funding',
+      component: Funding
     },
     {
-      path: '/Hi',
-      component: Hi
+      path: '/Coverage',
+      component: Coverage
+    },
+    {
+      path: '/Scenarios',
+      component: Scenarios
+    },
+    {
+      path: '/Contact',
+      component: ContactUs
+    },
+    {
+      path: '/Contact/InforList',
+      component: InforList,
+    },
+    {
+      path: '/Contact/InforDetail',
+      component: InforDetail,
     },
     {
       path: '/Params/:newsId/:newsTitle',
@@ -46,7 +67,8 @@ export default new Router({
       component: Error
     }
   ],
-  components:{
-    TopNav
+  // 窗口滚动到顶部
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
   }
 })

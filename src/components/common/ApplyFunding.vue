@@ -3,7 +3,7 @@
   <div class="applyFunding">
     <img src="../../assets/images/applyFunding.png">
     <div class="applyTitle">让我们承担您的诉讼风险</div>
-    <div class="applyButton">申请资助</div>
+    <router-link tag="div" to="/Contact" class="applyButton">申请资助</router-link>
   </div>
 </template>
 
@@ -49,5 +49,6 @@ export default {
   top: 124px;
   background: #c49a6d;
   text-align: center;
+  cursor: pointer;
 }
 </style>

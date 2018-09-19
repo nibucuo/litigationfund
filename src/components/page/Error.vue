@@ -1,5 +1,5 @@
 <template>
-	<h2>{{ msg }}</h2>
+	<h1>{{ msg }}</h1>
 </template>
 <script type="text/javascript">
 	export default{
@@ -12,5 +12,9 @@
 	}
 </script>
 <style type="text/css">
-	
+	h1{
+		width: 400px;
+		margin: 100px auto;
+		text-align: center;
+	}
 </style>

@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
-    <!-- <h2>首页</h2> -->
+    <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
+    <TopNav></TopNav>
+    <!-- 顶部不占位，做一个占位空白 -->
+    <div style="width:100%;height:115px;background:#fff"></div>
     <!-- 图片轮播部分 -->
     <div class="window" @mouseover="stop" @mouseout="play">
       <transition-group tag="ul" class="container" name="image">
@@ -9,10 +12,10 @@
         </li>
       </transition-group>
       <div class="left" @click="left" >
-        <img src="../assets/images/bannerLeft.png"/> 
+        <img src="../../assets/images/bannerLeft.png"/> 
       </div>
       <div class="right" @click="right">
-        <img src="../assets/images/bannerRight.png"/>               
+        <img src="../../assets/images/bannerRight.png"/>               
       </div>
       <ul class="dots">
         <li v-for="(dot, index) in imgData" :key="index" :class="{dotted: index ===  mark}"      @click = "change(index)">
@@ -28,7 +31,7 @@
         <span class="three"></span>
       </div>
       <div class="introEng">LITIGATION SUPPORT</div>
-      <div class="introMessage">如果您有民商事诉讼／仲裁／执行领域重大、疑难案件，因当事人财力有限，或代理人专业／地域／资源局限，难以启动司法救济，请联系我们。我们以诉讼垫资，全国网络覆盖和资深律师／专家／顾问团队及行业资源，为您实现胜诉和回款。</div>
+      <div class="introMessage">如果您有民商事诉讼/仲裁/执行领域重大、疑难案件，因当事人财力有限，或代理人专业/地域/资源局限，难以启动司法救济，请联系我们。我们以诉讼垫资，全国网络覆盖和资深律师/专家/顾问团队及行业资源，为您实现胜诉和回款。</div>
     </div>
     <!-- 客户/律师 -->
     <div class="lawyer">
@@ -39,7 +42,7 @@
       </div>
       <ul class="lawyerList">
         <li>
-          <img src="../assets/images/professionalService.png" >
+          <img src="../../assets/images/professionalService.png" >
           <div class="lawyerTitle">专业服务</div>
           <div class="lawyerBox">
             <span class="lawyerLine">—</span>
@@ -48,7 +51,7 @@
           </div>
         </li>
         <li>
-          <img src="../assets/images/coveringCountry.png" >
+          <img src="../../assets/images/coveringCountry.png" >
           <div class="lawyerTitle">覆盖全国</div>
           <div class="lawyerBox">
             <span class="lawyerLine">—</span>
@@ -57,7 +60,7 @@
           </div>
         </li>
         <li>
-          <img src="../assets/images/resourceSupport.png" >
+          <img src="../../assets/images/resourceSupport.png" >
           <div class="lawyerTitle">资源支持</div>
           <div class="lawyerBox">
             <span class="lawyerLine">—</span>
@@ -66,7 +69,7 @@
           </div>
         </li>
         <li>
-          <img src="../assets/images/litigation.png" >
+          <img src="../../assets/images/litigation.png" >
           <div class="lawyerTitle">诉讼垫资</div>
           <div class="lawyerBox">
             <span class="lawyerLine">—</span>
@@ -88,7 +91,7 @@
         <div class="introEng">SUPPORT</div>
       </div>
       <div class="introListBox">
-        <img src="../assets/images/support.png">
+        <img src="../../assets/images/support.png">
         <ul class="introList">
           <li>风险评估</li>
           <li>尽调论证</li>
@@ -106,8 +109,9 @@
 </template>
 
 <script>
-import Bottom from '@/components/common/Bottom'
+import TopNav from '@/components/common/TopNav'
 import ApplyFunding from '@/components/common/ApplyFunding'
+import Bottom from '@/components/common/Bottom'
 export default {
   name: 'Index',
   data () {
@@ -116,12 +120,13 @@ export default {
       timer: null,
       mark: 0,
       imgData: [
-        'http://t-dist.green-stone.cn/common/font/banner.png',
-        'http://t-dist.green-stone.cn/common/font/banner2.png'
+        'http://dist.green-stone.cn/common/font/banner.png',
+        'http://dist.green-stone.cn/common/font/banner2.png'
       ]
     }
   },
   components:{
+    TopNav,
     Bottom,
     ApplyFunding
   },
@@ -150,7 +155,7 @@ export default {
     },
     // 图片轮播播放
     play: function(){
-      this.timer = setInterval(this.autoPlay,3000)
+      this.timer = setInterval(this.autoPlay,5000)
     },
     // 图片轮播停止
     stop: function(event){
@@ -268,6 +273,7 @@ export default {
   background: #fff;
   cursor: pointer;
   margin-right: 15px;
+  display: inline-block;
 }
 .dots li.dotted{
   background: #c49a6d;

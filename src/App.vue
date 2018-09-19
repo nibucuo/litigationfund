@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <TopNav></TopNav>
     <router-view/>
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
-import TopNav from '@/components/common/TopNav'
 export default {
-  name: 'App',
-  components:{
-    TopNav
-  }
+  name: 'App'
 }
 // console.log($);
 </script>
@@ -27,13 +22,16 @@ ul {
   margin: 0;
   padding: 0;
 }
-li {
-  display: inline-block;
+li{
+  list-style: none;
 }
 a {
   color: #42b983;
 }
 input{
+  outline: none;
+}
+textarea{
   outline: none;
 }
 #app {
@@ -46,7 +44,6 @@ input{
 }
 a{
   text-decoration: none;
-  margin: 0 20px;
 }
 img{
   display: block;

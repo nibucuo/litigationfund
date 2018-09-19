@@ -27,7 +27,7 @@
     <!-- 顶部导航栏，左图右导航结构 -->
     <div class="topNavBox">
       <div class="topNavLeft">
-        <img src="../../assets/images/logo.png"/>
+        <img src="../../assets/images/logoBlank.png"/>
       </div>
       <ul class="topNav">
         <router-link to="/index" tag="li" >首页</router-link>
@@ -74,6 +74,24 @@ export default {
   },
   methods: {
     ...mapMutations(['showLogin','closeLogin','login']),
+  },
+  beforeRouteEnter (to, from, next) {
+    // 在渲染该组件的对应路由被 confirm 前调用
+    // 不！能！获取组件实例 `this`
+    // 因为当钩子执行前，组件实例还没被创建
+    console.log(to);
+  },
+  beforeRouteUpdate (to, from, next) {
+    // 在当前路由改变，但是该组件被复用时调用
+    // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+    // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+    // 可以访问组件实例 `this`
+    console.log(from);
+  },
+  beforeRouteLeave (to, from, next) {
+    // 导航离开该组件的对应路由时调用
+    // 可以访问组件实例 `this`
+    console.log(next);
   }
 }
 </script>
@@ -228,7 +246,9 @@ export default {
 .topNavBox{
   width: 100%;
   height: 89px;
-  background: #fff;
+  background: rgba(0,0,0,0.7);
+  position: relative;
+  z-index: 10;
   position: fixed;
   top: 26px;
   left: 0;
@@ -261,7 +281,7 @@ export default {
   border-bottom: 2px solid transparent;
   text-align: center;
   cursor: pointer;
-  color: #333;
+  color: #fff;
 }
 .topNav li.active{
   color: #c49a6d;
