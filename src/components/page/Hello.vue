@@ -383,7 +383,7 @@ export default {
   display: flex;
   position: absolute;
   left: 50%;
-  margin-left: -400px;
+  margin-left: -31%;
   bottom: 10%;
 }
 .introList li{

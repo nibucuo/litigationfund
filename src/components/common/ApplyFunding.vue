@@ -34,7 +34,7 @@ export default {
   color: #fff;
   font-size: 26px;
   font-family: 'Regular';
-  top: 130px;
+  top: 48%;
 }
 .applyButton{
   position: absolute;
@@ -46,7 +46,7 @@ export default {
   color: #fff;
   font-size: 18px;
   font-family: 'Regular';
-  top: 124px;
+  top: 48%;
   background: #c49a6d;
   text-align: center;
   cursor: pointer;

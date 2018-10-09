@@ -12,8 +12,8 @@
       <li class="bottomListTel">
         <div>
           <span class="bottomListContactUs">联系我们</span><br>
-          <span>电话：18611683380</span><br>
-          <span>微信：chenyingjin1125</span>
+          <span>电话：86 10 8075 8946</span><br>
+          <span>微信公众号：诉讼资助</span>
         </div>
       </li>
       <li class="bottomListQrcode">
@@ -21,7 +21,7 @@
       </li>
     </ul>
     <div class="bottomLine"></div>
-    <div class="bottomText">2018 北京绿石赢盛投资公司 版权所有 京ICP备00000000号 -0</div>
+    <div class="bottomText">2018 绿石（北京）网络科技有限公司 版权所有</div>
   </div>
 </template>
 
@@ -57,7 +57,7 @@ export default {
   color: #cacaca;
   font-size: 12px;
   font-family: 'Normal';
-  transform: scale(0.75);
+  transform: scale(0.8);
 }
 .bottomListLogo img{
   text-align: left;

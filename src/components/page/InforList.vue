@@ -7,7 +7,10 @@
     <!-- 信息列表图片 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner2.png">
-      <div class="aboutChi">信息列表</div>
+      <div class="aboutImgBox">
+        <div class="aboutChi">信息列表</div>
+      </div>
+      
     </div>
     <!-- 信息列表 -->
     <div class="infoBox">
@@ -48,8 +51,13 @@
 <script>
 import TopNavBlack from '@/components/common/TopNavBlack'
 import Bottom from '@/components/common/Bottom'
+import store from '@/vuex/store';
+import {mapState,mapMutations} from 'vuex';
+
+
 export default {
   name: 'InforList',
+  store,
   data () {
     return {
       pageIndex: 0,
@@ -60,6 +68,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['loginFlag','userTel','userPwd','username','ownUri']),
     // 显示分页按钮
     showPageBtn:function() {
       let pageNum = this.pages; // 总页数
@@ -89,11 +98,13 @@ export default {
   },
   methods: {
     init: function(){
-
+      console.log(this.username);
     },
     // 获取需求列表
     getInforList: function(page){
       var that = this;
+      // 判断是否登录获取到用户名，如果没有，则不显示 
+      if(!that.username) return;
       console.log(page);
       //时间格式化
       Date.prototype.Format = function(fmt)   
@@ -121,9 +132,17 @@ export default {
       // ”dStandard”: 标的   string
       // ”ddesc”: 需求描述    string  
       // ”dReply”: 是否已回复  0 否  1 是    int
+      var url = '';
+      var str = window.location.href;
+      console.log(str);
+      if(str.indexOf('localhost')>-1){
+        url = 'http://www.lvshikaimen.com'
+      }else{
+        url = location.host
+      }
       $.ajax({
         type: 'GET',
-        url: 'http://dist.green-stone.cn/exp/QuerylfDemand.do?page='+page+'&count=5',
+        url: url + '/exp/QuerylfDemand.do?page='+page+'&count=5',
         success:function(data){
           console.log(data);
           if(data.c === 1000){
@@ -146,10 +165,19 @@ export default {
       console.log(lfdid);
       var that = this;
       var confirm = window.confirm('确定要删除么？');
+      var url = '';
+      var str = window.location.href;
+      console.log(str);
+      if(str.indexOf('localhost')>-1){
+        url = 'http://www.lvshikaimen.com'
+      }else{
+        url = location.host
+      }
+      console.log(url);
       if(confirm){
         $.ajax({
           type: 'POST',
-          url: 'http://dist.green-stone.cn/exp/DellfDemand.do',
+          url: url + '/exp/DellfDemand.do',
           data: JSON.stringify({
             lfdid: lfdid
           }),
@@ -211,30 +239,30 @@ export default {
   position: relative;
   top: -89px;
 }
+.aboutImgBox{
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -50px;
+}
 .aboutChi{
-  width: 110px;
+  width: 100px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
   color: #fff;
   font-size: 22px;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  margin-left: -50px;
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 110px;
+  width: 100px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';
   color: #fff;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  margin-left: -50px;
 }
 /*信息列表*/
 .infoBox{

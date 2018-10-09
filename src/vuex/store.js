@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Router from 'vue-router'
+
 
 Vue.use(Vuex);
 
@@ -34,6 +36,9 @@ const mutations = {
   login: function(){
     // console.log(state.userTel);
     // console.log(state.userPwd);
+    // 登录权限手机号
+    var tels = ['15203573437','13718128160','18611683380','13167360001']
+    
     var userTel = state.userTel;
     var userPwd = state.userPwd;
     var at = 1;
@@ -43,12 +48,23 @@ const mutations = {
     }else if(userTel.length != 11){
       alert('电话号码位数不正确');
       return;
+    }else if(tels.indexOf(userTel) == -1){
+      alert('您没有登录权限');
+      state.loginFlag = false;
+      $('body').css('overflow', 'auto');
+      return;
     }else if(!userPwd){
       alert('请输入密码！');
       return;
     }
 
-    var server = 'http://dist.green-stone.cn/';
+    var server = '';
+    var str = window.location.href;
+    if(str.indexOf('localhost')>-1){
+      server = 'http://www.lvshikaimen.com/'
+    }else{
+      server ='http://'+location.host + '/'
+    }
     var tempHost = server.split('//')[1];
     var host = tempHost.replace('/','');
     var uri = userTel.toLowerCase();

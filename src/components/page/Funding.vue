@@ -7,8 +7,11 @@
     <!-- 诉讼资助 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner3.png">
-      <div class="aboutChi">资助</div>
-      <div class="aboutEng">FUNDING</div>
+      <div class="aboutImgBox">
+        <div class="aboutChi">资助</div>
+        <div class="aboutEng">FUNDING</div>
+      </div>
+      
     </div>
     <div class="litigation">
       <div class="introduction">
@@ -21,11 +24,11 @@
         <div class="introEng">FUNDING</div>
       </div>
       <div class="litigationImgBox">
-        <div v-if="litigationLeft" class="litigationLeft">保全费</div>
-        <div @mouseenter="showLeft" @mouseleave="hiddenLeft" class="litigationLeftBox"></div>
+        <div class="litigationLeft">保全费</div>
+        <div class="litigationLeftBox"></div>
         <div class="litigationImg"><img src="../../assets/images/circles.png"></div>
-        <div v-if="litigationRight" class="litigationRight">审计费、鉴定费、公证费、评估费、拍卖费</div>
-        <div @mouseenter="showRight" @mouseleave="hiddenRight" class="litigationRightBox"></div>
+        <div class="litigationRight">审计费、鉴定费、<br/>公证费、评估费、<br/>拍卖费</div>
+        <div class="litigationRightBox"></div>
       </div>
     </div>
     <!-- 资助阶段 -->
@@ -44,10 +47,9 @@
         <li class="phaseLine">————</li>
         <li class="phaseImg">
           <ul>
-            <li v-if="!phase1" @click="changePhase1"><img src="../../assets/images/phase1.png"></li>
-            <li v-else><img src="../../assets/images/phase11.png"></li>
-            <li :class="!phase1?'phaseTextGray':'phaseTextActive'">诉讼</li>
-            <li v-if="phase1">
+            <li><img src="../../assets/images/phase11.png"></li>
+            <li class="phaseTextActive">诉讼</li>
+            <li>
               <div class="phaseImgBig">诉讼</div>
               <div class="phaseImgSmall">
                 <span>一审</span><br>
@@ -60,10 +62,9 @@
         <li class="phaseLine">————</li>
         <li class="phaseImg">
           <ul>
-            <li v-if="!phase2" @click="changePhase2"><img src="../../assets/images/phase2.png"></li>
-            <li v-else><img src="../../assets/images/phase22.png"></li>
-            <li :class="!phase2?'phaseTextGray':'phaseTextActive'">仲裁</li>
-            <li v-if="phase2">
+            <li><img src="../../assets/images/phase22.png"></li>
+            <li class="phaseTextActive">仲裁</li>
+            <li>
               <div class="phaseImgBig">仲裁</div>
               <div class="phaseImgSmall">
                 <span>国内</span><br>
@@ -75,10 +76,9 @@
         <li class="phaseLine">————</li>
         <li class="phaseImg">
           <ul>
-            <li v-if="!phase3" @click="changePhase3"><img src="../../assets/images/phase3.png"></li>
-            <li v-else><img src="../../assets/images/phase33.png"></li>
-            <li :class="!phase3?'phaseTextGray':'phaseTextActive'">保全与执行</li>
-            <li v-if="phase3">
+            <li><img src="../../assets/images/phase33.png"></li>
+            <li class="phaseTextActive">保全与执行</li>
+            <li>
               <div class="phaseImgBig">保全与执行</div>
               <div class="phaseImgSmall">
                 <span>公证债权文书执行</span><br>
@@ -91,10 +91,9 @@
         <li class="phaseLine">————</li>
         <li class="phaseImg">
           <ul>
-            <li v-if="!phase4" @click="changePhase4"><img src="../../assets/images/phase4.png"></li>
-            <li v-else><img src="../../assets/images/phase44.png"></li>
-            <li :class="!phase4?'phaseTextGray':'phaseTextActive'">破产重组与清算</li>
-            <li v-if="phase4">
+            <li><img src="../../assets/images/phase44.png"></li>
+            <li class="phaseTextActive">破产重组与清算</li>
+            <li>
               <div class="phaseImgBig">破产重组与清算</div>
               <div class="phaseImgSmall">
                 <span>债务重组</span><br>
@@ -126,54 +125,11 @@ export default {
   name: 'AboutUs',
   data () {
     return {
-      loginFlag: false,
-      litigationLeft: false,
-      litigationRight: false,
-      phase1: true,
-      phase2: false,
-      phase3: false,
-      phase4: false
     }
   },
   methods: {
     init: function(){
     },
-    showLeft: function(){
-      this.litigationLeft = true;
-    },
-    showRight: function(){
-      this.litigationRight = true;
-    },
-    hiddenLeft: function(){
-      this.litigationLeft = false;
-    },
-    hiddenRight: function(){
-      this.litigationRight = false;
-    },
-    changePhase1: function(){
-      this.phase1 = true;
-      this.phase2 = false;
-      this.phase3 = false;
-      this.phase4 = false;
-    },
-    changePhase2: function(){
-      this.phase1 = false;
-      this.phase2 = true;
-      this.phase3 = false;
-      this.phase4 = false;
-    },
-    changePhase3: function(){
-      this.phase1 = false;
-      this.phase2 = false;
-      this.phase3 = true;
-      this.phase4 = false;
-    },
-    changePhase4: function(){
-      this.phase1 = false;
-      this.phase2 = false;
-      this.phase3 = false;
-      this.phase4 = true;
-    }
   },
   mounted:function(){
     // this.init();
@@ -199,6 +155,14 @@ export default {
   position: relative;
   top: -89px;
 }
+.aboutImgBox{
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -50px;
+}
 .aboutChi{
   width: 100px;
   height: 30px;
@@ -206,10 +170,6 @@ export default {
   font-family: 'Medium';
   color: #fff;
   font-size: 22px;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  margin-left: -50px;
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
@@ -219,10 +179,6 @@ export default {
   font-family: 'Regular';
   color: #fff;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  margin-left: -50px;
 }
 /*诉讼资助*/
 .litigation{
@@ -273,11 +229,11 @@ export default {
 }
 .litigationLeft{
   position: absolute;
-  left: 26%;
+  left: 28%;
   top: 64%;
   font-family: 'Regular';
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
 }
 .litigationLeftBox{
   width: 230px;
@@ -302,11 +258,11 @@ export default {
 .litigationRight{
   width: 180px;
   position: absolute;
-  right: 16%;
-  top: 64%;
+  right: 18%;
+  top: 57%;
   font-family: 'Regular';
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
 }
 .litigationRightBox{
   width: 230px;
@@ -321,6 +277,7 @@ export default {
 .funding{
   padding-top: 40px;
   background: url('../../assets/images/lightBg.png');
+  background-repeat: no-repeat;
 }
 .phase{
   width: 80%;
@@ -360,13 +317,13 @@ export default {
 .phaseImgBig{
   font-family: 'Regular';
   color: #000;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
 }
 .phaseImgSmall{
   font-family: 'Normal';
   color: #4d4d4d;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
 }
 </style>

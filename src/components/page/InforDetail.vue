@@ -7,7 +7,10 @@
     <!-- 信息列表图片 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner2.png">
-      <div class="aboutChi">信息详情</div>
+      
+      <div class="aboutImgBox">
+        <div class="aboutChi">信息详情</div>
+      </div>
     </div>
     <!-- 信息列表 -->
     <div class="infoBox">
@@ -67,9 +70,17 @@ export default {
     // 获取某条需求详细信息
     getInforDetail: function(lfdid){
       var that = this;
+      var url = '';
+      var str = window.location.href;
+      console.log(str);
+      if(str.indexOf('localhost')>-1){
+        url = 'http://www.lvshikaimen.com'
+      }else{
+        url = location.host
+      }
       $.ajax({
           type: 'GET',
-          url: 'http://dist.green-stone.cn/exp/QuerylfDemandDetail.do?lfdid='+lfdid,
+          url: url + '/exp/QuerylfDemandDetail.do?lfdid='+lfdid,
           success:function(data){
             console.log(data);
             that.dName = data.dName;
@@ -87,9 +98,17 @@ export default {
     },
     // 更新某条需求状态为已读
     updateInforDetail: function(lfdid,dName,dMobile,dMail,dStandard,ddesc){
+      var url = '';
+      var str = window.location.href;
+      console.log(str);
+      if(str.indexOf('localhost')>-1){
+        url = 'http://www.lvshikaimen.com'
+      }else{
+        url = location.host
+      }
       $.ajax({
         type: 'POST',
-        url: 'http://dist.green-stone.cn/exp/UpdatelfDemand.do',
+        url: url + '/exp/UpdatelfDemand.do',
         data: JSON.stringify({
           "lfdid": lfdid,
           "dName": dName,
@@ -137,30 +156,30 @@ export default {
   position: relative;
   top: -89px;
 }
+.aboutImgBox{
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -50px;
+}
 .aboutChi{
-  width: 110px;
+  width: 100px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
   color: #fff;
   font-size: 22px;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  margin-left: -50px;
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 110px;
+  width: 100px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';
   color: #fff;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  margin-left: -50px;
 }
 /*信息列表*/
 .infoBox{

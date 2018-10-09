@@ -7,8 +7,11 @@
     <!-- 应用场景 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner2.png">
-      <div class="aboutChi">应用场景</div>
-      <div class="aboutEng">SCENARIOS</div>
+      <div class="aboutImgBox">
+        <div class="aboutChi">应用场景</div>
+        <div class="aboutEng">SCENARIOS</div>
+      </div>
+      
     </div>
     <!-- 案例列表 -->
     <ul class="caseList">
@@ -16,21 +19,21 @@
         <div class="caseListLeft"><img src="../../assets/images/case1.png"></div>
         <div class="caseListRight">
           <div class="caseTitle">案例1</div>
-          <div class="caseContent">某企业及其创始人因在建工程陷入财务困境，但对其历史股东有 巨额诉权且案情复杂，诉讼资助使其聘请到了一流的律师团队并启动司法救济；</div>
+          <div class="caseContent">某企业及其创始人因在建工程陷入财务困境，但对其原股东有巨额诉权且案情复杂，诉讼资助使其聘请到了一流的律师团队并启动司法救济。</div>
         </div>
       </li>
       <li>
         <div class="caseListLeft"><img src="../../assets/images/case2.png"></div>
         <div class="caseListRight">
           <div class="caseTitle">案例2</div>
-          <div class="caseContent">某创业公司被诉知识产权侵权，通过诉讼资助找到了合适的知产律 师，并集中财力用于研发攻坚，成功抗辩、提起反诉并赢得反诉赔偿；</div>
+          <div class="caseContent">某创业公司被诉知识产权侵权，通过诉讼资助找到了合适的知产律 师，并集中财力用于研发攻坚，成功抗辩、提起反诉并赢得赔偿。</div>
         </div>
       </li>
       <li>
         <div class="caseListLeft"><img src="../../assets/images/case3.png"></div>
         <div class="caseListRight">
           <div class="caseTitle">案例3</div>
-          <div class="caseContent">某上市公司创始人的遗产股份陷入股权纷争，继承人通过诉讼资助聘请公司法和资本市场专家型律师为其清理潜在的对赌代持、 低价转股等风险，明晰股权后二级市场解封，股份变现退出；</div>
+          <div class="caseContent">某上市公司创始人的遗产股份陷入股权纷争，继承人通过诉讼资助聘请公司法和资本市场专家型律师为其清理潜在的对赌代持、 低价转股等风险，明晰股权后二级市场解封，股份变现退出。</div>
         </div>
       </li>
       <li>
@@ -89,6 +92,14 @@ export default {
   position: relative;
   top: -89px;
 }
+.aboutImgBox{
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -50px;
+}
 .aboutChi{
   width: 100px;
   height: 30px;
@@ -96,10 +107,6 @@ export default {
   font-family: 'Medium';
   color: #fff;
   font-size: 22px;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  margin-left: -50px;
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
@@ -109,10 +116,6 @@ export default {
   font-family: 'Regular';
   color: #fff;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  margin-left: -50px;
 }
 /*案例列表*/
 .caseList{

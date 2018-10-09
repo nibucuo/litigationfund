@@ -8,15 +8,18 @@
       <!-- 联系我们图片 -->
       <div class="aboutImg">
         <img src="../../assets/images/banner2.png">
-        <div class="aboutChi">联系我们</div>
-        <div class="aboutEng">CONTACT US</div>
+        <div class="aboutImgBox">
+          <div class="aboutChi">联系我们</div>
+          <div class="aboutEng">CONTACT US</div>
+        </div>
+        
       </div>
       <!-- 联系我们 -->
       <div class="contactBox">
         <div class="contactLeft">
           <div class="leftTitle">诉讼资助联系方式</div>
           <div class="leftTitleEng">Contact information</div>
-          <div class="leftMessage">电话：18611683380<br/>微信：chenyingjin1125<br/>邮箱：4831374@qq.com</div>
+          <div class="leftMessage">电话：86 10 8075 8946<br/>微信公众号：诉讼资助<br/>邮箱：yingjin.chen@green-stone.cn</div>
           <div class="leftQrcode"><img src="../../assets/images/qrcode.png"></div>
         </div>
         <div class="contactRight">
@@ -91,9 +94,16 @@ export default {
       // ”ddesc”: 需求描述    string  
       // ”dReply”: 是否已回复  0 否  1 是    int
       var that = this;
+      var url = '';
+      var str = window.location.href;
+      if(str.indexOf('localhost')>-1){
+        url = 'http://www.lvshikaimen.com'
+      }else{
+        url = location.host
+      }
       $.ajax({
         type: 'POST',
-        url: 'http://dist.green-stone.cn/exp/UpdatelfDemand.do',
+        url: url + '/exp/UpdatelfDemand.do',
         data: JSON.stringify({
           "lfdid": 0,
           "dName": that.clientName,
@@ -141,30 +151,30 @@ export default {
   position: relative;
   top: -89px;
 }
+.aboutImgBox{
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -50px;
+}
 .aboutChi{
-  width: 110px;
+  width: 100px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
   color: #fff;
   font-size: 22px;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  margin-left: -50px;
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 110px;
+  width: 100px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';
   color: #fff;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  margin-left: -50px;
 }
 /*联系我们*/
 .contactBox{

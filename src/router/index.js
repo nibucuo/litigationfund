@@ -8,7 +8,6 @@ import Funding from '@/components/page/Funding'
 import Coverage from '@/components/page/Coverage'
 import Scenarios from '@/components/page/Scenarios'
 import ContactUs from '@/components/page/ContactUs'
-import Contact from '@/components/page/Contact'
 import InforList from '@/components/page/InforList'
 import InforDetail from '@/components/page/InforDetail'
 import Error from '@/components/page/Error'
@@ -20,7 +19,7 @@ export default new Router({
   linkActiveClass: "active",
   routes: [
     {
-      path: '/index',
+      path: '/',
       component: Hello
     },
     {
@@ -64,7 +63,7 @@ export default new Router({
     },
     {
       path: '*',
-      component: Error
+      redirect: '/'
     }
   ],
   // 窗口滚动到顶部

@@ -7,19 +7,22 @@
     <!-- 关于我们正文 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner2.png">
-      <div class="aboutChi">关于我们</div>
-      <div class="aboutEng">ABOUT US</div>
+      <div class="aboutImgBox">
+        <div class="aboutChi">关于我们</div>
+        <div class="aboutEng">ABOUT US</div>
+      </div>
+      
     </div>
     <div class="litigation">
       <img class="litigationImg" src="../../assets/images/logoWe.png">
       <div class="paragraph1">
-        绿石诉讼资助通过专业能力和执行力，在争议解决中提供相关资源和费用方面的帮助，来释放合法诉权的潜在价值。已有越来越多的财富500强公司、企业和个人从该模式中受益，日益成为民商事诉讼、仲裁、执行业务的主流趋势。
+        绿石诉讼资助通过专业能力和执行力，在争议解决中提供相关资源和费用方面的帮助，来释放诉权的潜在价值。已有越来越多的财富500强公司、企业和个人从该模式中受益，日益成为民商事诉讼、仲裁、执行领域的主流趋势。
       </div>
       <div class="paragraph1">
-        争议解决所涉及的专业门槛高、诉讼周期长，许多应收款长期挂账，严重影响现金流周转，甚至最终丧失诉讼时效而不得不予以核销。当事人对律师行业和司法体系的生疏也导致具有合理诉权的主张被推迟或被迫放弃追索。
+        争议解决所涉及的专业门槛高、诉讼周期长，应收款长期挂账，甚至最终超过诉讼时效而不得不予以核销，严重影响现金流周转。当事人对律师行业和司法体系的生疏也导致具有诉权的主张被推迟或被迫放弃追索。
       </div>
       <div class="paragraph1">
-        当事人之间不平等的财务资源存在着巨大的差异，给司法救济带来了障碍和不平衡，并使资金紧张的当事人所能获得的裁判结果发生偏离和扭曲。诉讼资助应运而生，在为客户切实创造价值的基础上实现共赢。
+        当事人之间不同的财务资源存在着巨大差异，给其自身的司法救济带来了障碍和不平衡，并使资金紧张的当事人所能获得的裁判结果发生偏离。诉讼资助应运而生，在为客户切实创造价值的基础上实现共赢。
       </div>
       <div class="paragraph2">顶级团队</div>
       <div class="paragraph3">绿石与一流的专家型律师、顾问合作，在客户与顶尖团队间搭建桥梁：</div>
@@ -51,7 +54,7 @@
       </div>
       <div class="paragraph6">
         <div class="more">更多资料请下载宣传册查看</div>
-        <a href="http://dist.green-stone.cn/common/font/绿石诉讼资助_Market_Final.pptx" download="text" class="download">绿石诉讼资助宣传册</a>
+        <a href="http://dist.green-stone.cn/common/font/绿石诉讼资助宣传册.pdf" download="text" class="download">绿石诉讼资助宣传册</a>
       </div>
     </div>
     <!-- 申请资助 -->
@@ -106,6 +109,14 @@ export default {
   position: relative;
   top: -89px;
 }
+.aboutImgBox{
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -50px;
+}
 .aboutChi{
   width: 100px;
   height: 30px;
@@ -113,10 +124,6 @@ export default {
   font-family: 'Medium';
   color: #fff;
   font-size: 22px;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  margin-left: -50px;
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
@@ -126,10 +133,6 @@ export default {
   font-family: 'Regular';
   color: #fff;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  margin-left: -50px;
 }
 /*段落简介*/
 .litigationImg{

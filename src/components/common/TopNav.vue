@@ -26,15 +26,15 @@
     </div>
     <!-- 顶部导航栏，左图右导航结构 -->
     <div class="topNavBox">
-      <div class="topNavLeft">
+      <router-link to="/" tag="div" class="topNavLeft">
         <img src="../../assets/images/logo.png"/>
-      </div>
+      </router-link>
       <ul class="topNav">
-        <router-link to="/index" tag="li" >首页</router-link>
-        <router-link to="/AboutUs" tag="li" >关于我们</router-link>
-        <router-link to="/Funding" tag="li" >资助</router-link>
-        <router-link to="/Coverage" tag="li" >网络</router-link>
-        <router-link to="/Scenarios" tag="li" >应用场景</router-link>
+        <router-link to="/" tag="li" exact >首页</router-link>
+        <router-link to="/AboutUs" tag="li" exact >关于我们</router-link>
+        <router-link to="/Funding" tag="li" exact >资助</router-link>
+        <router-link to="/Coverage" tag="li" exact >网络</router-link>
+        <router-link to="/Scenarios" tag="li" exact >应用场景</router-link>
         <router-link to="/Contact" tag="li" >联系我们</router-link>
       </ul>
     </div>  
@@ -74,6 +74,7 @@ export default {
   },
   methods: {
     ...mapMutations(['showLogin','closeLogin','login']),
+
   }
 }
 </script>
@@ -240,6 +241,7 @@ export default {
   float: left;
   margin-left: 12%;
   margin-right: 8%;
+  cursor: pointer;
 }
 .topNavLeft img{
   height: 51px;
