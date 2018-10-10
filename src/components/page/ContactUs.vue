@@ -19,7 +19,7 @@
         <div class="contactLeft">
           <div class="leftTitle">诉讼资助联系方式</div>
           <div class="leftTitleEng">Contact information</div>
-          <div class="leftMessage">电话：86 10 8075 8946<br/>微信公众号：诉讼资助<br/>邮箱：yingjin.chen@green-stone.cn</div>
+          <div class="leftMessage">电话：86 10 8075 8946<br/>微信公众号：诉讼资助<br/>邮箱：ying.cheng@green-stone.cn</div>
           <div class="leftQrcode"><img src="../../assets/images/qrcode.png"></div>
         </div>
         <div class="contactRight">
