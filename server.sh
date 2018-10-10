@@ -15,7 +15,7 @@ cd $WORKING_DIR
 # 1.从版本库获取文件
 if [[ ! -d $REPO_NAME ]]; then
     echo '<----------begin to clone VueWeb.git!---------->'
-    git clone -b master https://github.com/nibucuo/vue-demo.git
+    git clone -b master https://github.com/nibucuo/litigationfund.git
     echo '<----------Progress 20% , VueWeb clone task complete!---------->'
 else
     cd $WORKING_DIR/$REPO_NAME
@@ -33,6 +33,9 @@ echo '<----------Progress 40% , install package task complete!---------->'
 # 3.如果www目录不存在，新建之；如果存在，清空目录
 echo '<----------begin to create dist folder!---------->'
 cd $WORKING_DIR
+if [ ! -d www ]; then
+   mkdir www
+else
   cd $WORKING_DIR/www
   for f in `ls`
   do
@@ -44,23 +47,23 @@ cd $WORKING_DIR
     fi  
   done
 fi
-echo '<----------Progress 65% , create dist folder task complete!---------->'
+echo '<----------Progress 60% , create dist folder task complete!---------->'
 
-# 4.拷贝VueWeb目录到dist
+# 4.拷贝VueWeb目录到www
 echo '<----------begin to copy VueWeb to dist!---------->'
 cd $WORKING_DIR/$REPO_NAME/dist
 for f in `ls`
 do                     
   if [  -d $f  ]
   then  
-    cp -rf $f $WORKING_DIR/dist #拷贝文件夹
+    cp -rf $f $WORKING_DIR/www #拷贝文件夹
   else
-    cp $f $WORKING_DIR/dist #拷贝文件
+    cp $f $WORKING_DIR/www #拷贝文件
   fi                  
 done 
 echo '<----------Progress 80% , copy VueWeb task complete!---------->'        
 
-
+echo '<----------begin to build VueWeb!---------->'
 echo '<----------Progress 100% , VueWeb build successfully!---------->'
 
 
