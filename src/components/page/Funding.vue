@@ -278,9 +278,10 @@ export default {
   padding-top: 40px;
   background: url('../../assets/images/lightBg.png');
   background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 .phase{
-  width: 80%;
+  width: 1100px;
   height: 300px;
   display: flex;
   margin: 0 auto;
