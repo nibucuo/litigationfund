@@ -37,7 +37,7 @@ const mutations = {
     // console.log(state.userTel);
     // console.log(state.userPwd);
     // 登录权限手机号
-    var tels = ['15203573437','13718128160','18611683380','13167360001']
+    var tels = ['15203573437','13718128160','13167360001']
     
     var userTel = state.userTel;
     var userPwd = state.userPwd;

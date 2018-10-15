@@ -8,6 +8,8 @@ import Funding from '@/components/page/Funding'
 import Coverage from '@/components/page/Coverage'
 import Scenarios from '@/components/page/Scenarios'
 import ContactUs from '@/components/page/ContactUs'
+import Team from '@/components/page/Team'
+import Blog from '@/components/page/Blog'
 import InforList from '@/components/page/InforList'
 import InforDetail from '@/components/page/InforDetail'
 import Error from '@/components/page/Error'
@@ -37,6 +39,14 @@ export default new Router({
     {
       path: '/Scenarios',
       component: Scenarios
+    },
+    {
+      path: '/Team',
+      component: Team
+    },
+    {
+      path: '/Blog',
+      component: Blog
     },
     {
       path: '/Contact',

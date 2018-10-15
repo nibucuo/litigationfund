@@ -29,6 +29,7 @@
       <router-link to="/" tag="div" class="topNavLeft">
         <img src="../../assets/images/logo.png"/>
       </router-link>
+      <!-- 此处有两个隐藏菜单（团队和博客），内容待定，同样还有TopNavBlack.vue文件需要修改 -->
       <ul class="topNav">
         <router-link to="/" tag="li" exact >首页</router-link>
         <router-link to="/AboutUs" tag="li" exact >关于我们</router-link>
@@ -36,6 +37,8 @@
         <router-link to="/Coverage" tag="li" exact >网络</router-link>
         <router-link to="/Scenarios" tag="li" exact >应用场景</router-link>
         <router-link to="/Contact" tag="li" >联系我们</router-link>
+        <router-link to="/Team" style="display:none" tag="li" exact >团队/顾问</router-link>
+        <router-link to="/Blog" style="display:none" tag="li" exact >绿石研究院</router-link>
       </ul>
     </div>  
   </div>
@@ -239,8 +242,8 @@ export default {
   width: 20%;
   height: 85px;
   float: left;
-  margin-left: 12%;
-  margin-right: 8%;
+  margin-left: 8%;
+  margin-right: 4%;
   cursor: pointer;
 }
 .topNavLeft img{
@@ -249,15 +252,15 @@ export default {
   margin-top: 17px; 
 }
 .topNav{
-  width: 48%;
+  width: 66%;
   float: left;
   padding-top: 20px;
   line-height: 65px;
 }
 .topNav li{
   float: left;
-  width: 10%;
-  margin: 0 2%;
+  width: 9%;
+  margin: 0 1%;
   font-family: 'Normal';
   font-size: 14px;
   border-bottom: 2px solid transparent;
