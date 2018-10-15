@@ -37,8 +37,8 @@
         <router-link to="/Coverage" tag="li" exact >网络</router-link>
         <router-link to="/Scenarios" tag="li" exact >应用场景</router-link>
         <router-link to="/Contact" tag="li" >联系我们</router-link>
-        <router-link to="/Team" tag="li" exact >团队/顾问</router-link>
-        <router-link to="/Blog" tag="li" exact >绿石研究院</router-link>
+        <router-link to="/Team" style="display:none" tag="li" exact >团队/顾问</router-link>
+        <router-link to="/Blog" style="display:none" tag="li" exact >绿石研究院</router-link>
       </ul>
     </div>  
   </div>
