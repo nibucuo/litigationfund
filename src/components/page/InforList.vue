@@ -134,12 +134,12 @@ export default {
       // ”ddesc”: 需求描述    string  
       // ”dReply”: 是否已回复  0 否  1 是    int
       var url = '';
-      var str = window.location.host;
+      var str = window.location.origin;
       var that = this;
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = location.host
+        url = location.origin
       }
       // console.log(that);
       axios.get(url+'/exp/QuerylfDemand.do?page='+page+'&count=5')
@@ -163,12 +163,12 @@ export default {
       var that = this;
       var confirm = window.confirm('确定要删除么？');
       var url = '';
-      var str = window.location.host;
+      var str = window.location.origin;
       // console.log(str);
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = location.host
+        url = location.origin
       }
       if(confirm){
         $.ajax({

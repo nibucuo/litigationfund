@@ -102,11 +102,11 @@ export default {
       // ”dReply”: 是否已回复  0 否  1 是    int
       var that = this;
       var url = '';
-      var str = window.location.href;
+      var str = window.location.origin;
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = window.location.href
+        url = window.location.origin
       }
       axios.post(url + '/exp/UpdatelfDemand.do', {
         "lfdid": 0,

@@ -79,12 +79,12 @@ export default {
     getInforDetail: function(lfdid){
       var that = this;
       var url = '';
-      var str = window.location.href;
+      var str = window.location.origin;
       // console.log(str);
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = window.location.href
+        url = window.location.origin
       }
       axios.get(url + '/exp/QuerylfDemandDetail.do?lfdid='+lfdid)
       .then(function(response){
@@ -105,13 +105,13 @@ export default {
     // 更新某条需求状态为已读
     updateInforDetail: function(lfdid,dName,dMobile,dMail,dStandard,ddesc){
       var url = '';
-      var str = window.location.href;
+      var str = window.location.origin;
       var that = this;
       // console.log(str);
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = window.location.href
+        url = window.location.origin
       }
       axios.post(url + '/exp/UpdatelfDemand.do',{
         "lfdid": lfdid,
