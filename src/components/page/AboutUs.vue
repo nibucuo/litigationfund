@@ -1,7 +1,7 @@
 <template>
   <div class="aboutUs">
     <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
-    <TopNavBlack></TopNavBlack>
+    <TopNavBlack v-bind:bgColor="bgColor"></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
     <div style="width:100%;height:115px;background:transparent"></div>
     <!-- 关于我们正文 -->
@@ -16,13 +16,13 @@
     <div class="litigation">
       <img class="litigationImg" src="../../assets/images/logoWe.png">
       <div class="paragraph1">
-        绿石诉讼资助通过专业能力和执行力，在争议解决中提供相关资源和费用方面的帮助，来释放诉权的潜在价值。已有越来越多的财富500强公司、企业和个人从该模式中受益，日益成为民商事诉讼、仲裁、执行领域的主流趋势。
+        绿石诉讼资助以其卓越的专业能力，在争议解决中为当事人提供相关团队、资源和费用帮助，及时释放诉权、加速资金回笼，已有越来越多的财富500强公司、企业和个人从中受益。诉讼资助日益成为民商事诉讼、仲裁、执行领域的主流趋势。
       </div>
       <div class="paragraph1">
-        争议解决所涉及的专业门槛高、诉讼周期长，应收款长期挂账，甚至最终超过诉讼时效而不得不予以核销，严重影响现金流周转。当事人对律师行业和司法体系的生疏也导致具有诉权的主张被推迟或被迫放弃追索。
+        争议解决涉及的专业门槛高、诉讼周期长，应收款长期挂账，甚至最终超过诉讼时效而不得不予以核销，严重影响现金流周转。当事人对律师行业和司法体系的生疏也导致其合理合法的诉权主张被迫推迟或放弃追索。
       </div>
       <div class="paragraph1">
-        当事人之间不同的财务资源存在着巨大差异，给其自身的司法救济带来了障碍和不平衡，并使资金紧张的当事人所能获得的裁判结果发生偏离。诉讼资助应运而生，在为客户切实创造价值的基础上实现共赢。
+        当事人之间不同的财务资源存在着巨大差异，给其自身的司法救济带来了障碍，并使得现金流紧张的当事人所能获得的裁判结果发生偏离。诉讼资助应运而生，在为客户切实创造价值的基础上实现共赢。
       </div>
       <div class="paragraph2">顶级团队</div>
       <div class="paragraph3">绿石与一流的专家型律师、顾问合作，在客户与顶尖团队间搭建桥梁：</div>
@@ -74,7 +74,8 @@ export default {
   name: 'AboutUs',
   data () {
     return {
-      loginFlag: false
+      loginFlag: false,
+      bgColor: "black"
     }
   },
   methods: {
@@ -110,15 +111,15 @@ export default {
   top: -89px;
 }
 .aboutImgBox{
-  width: 100px;
+  width: 120px;
   height: 60px;
   position: absolute;
   left: 50%;
   top: 40%;
-  margin-left: -50px;
+  margin-left: -60px;
 }
 .aboutChi{
-  width: 100px;
+  width: 120px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
@@ -127,7 +128,7 @@ export default {
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 100px;
+  width: 120px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';

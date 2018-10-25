@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Router from 'vue-router'
+import VueResource from 'vue-resource';
+import $ from 'jquery';
 
 
 Vue.use(Vuex);
+Vue.use(VueResource);
 
 var crypto = require('@/assets/js/hmac-md5');
 const state = {
@@ -17,12 +19,12 @@ const mutations = {
 	// 显示登录框，禁止页面滚动
   showLogin: function(){
     state.loginFlag = true;
-    $('body').css('overflow', 'hidden');
+    document.body.style.overflow = 'hidden';
   },
   // 隐藏登录框，取消禁止页面滚动
   closeLogin: function(){
     state.loginFlag = false;
-    $('body').css('overflow', 'auto');
+    document.body.style.overflow = 'auto';
   },
   // 更新用户手机号
   updateUserTel (state, userTel) {
@@ -51,7 +53,7 @@ const mutations = {
     }else if(tels.indexOf(userTel) == -1){
       alert('您没有登录权限');
       state.loginFlag = false;
-      $('body').css('overflow', 'auto');
+      document.body.style.overflow = 'auto'
       return;
     }else if(!userPwd){
       alert('请输入密码！');
@@ -63,7 +65,7 @@ const mutations = {
     if(str.indexOf('localhost')>-1){
       server = 'http://www.lvshikaimen.com/'
     }else{
-      server ='http://'+location.host + '/'
+      server =window.location.href + '/'
     }
     var tempHost = server.split('//')[1];
     var host = tempHost.replace('/','');
@@ -77,30 +79,33 @@ const mutations = {
     // console.log(pwd);
     var result = crypto.crypto.HmacSHA1(mac,pwd).toString(crypto.crypto.enc.Base64);
     // console.log(result);
+
     $.ajax({
-      type:'GET',
-      url:server+'exp/Login.do?at='+at,
+      url: server + 'exp/Login.do?at='+at,
+      type: 'GET',
       beforeSend:function(req){
         var auth = "MAC id=\""+userTel+"\",ts=\""+ts+"\",nonce=\""+nonce+"\",mac=\""+result+"\"";
         req.setRequestHeader('Authorization',auth);
       },
-      success:function(data){
-        // console.log(data);
-        if(data.c == 1000){
-          alert('登录成功');
-          state.loginFlag = false;
-          $('body').css('overflow', 'auto');
-          state.username = data.u.n;
-          state.ownUri = data.u.ja;
-        }else if(data.c == 1005){
-          alert('用户名或密码错误！');
-        }else if(data.c == 1002){
-          alert('密码输入错误次数过多，账号被锁定，请稍后重试！');
-        }
-      },
-      error:function(error){
-        alert('网络连接错误或服务器异常！');
+    })
+    .done(function(data) {
+      if(data.c == 1000){
+        alert('登录成功');
+        state.loginFlag = false;
+        document.body.style.overflow = 'auto';
+        state.username = data.u.n;
+        state.ownUri = data.u.ja;
+      }else if(data.c == 1005){
+        alert('用户名或密码错误！');
+      }else if(data.c == 1002){
+        alert('密码输入错误次数过多，账号被锁定，请稍后重试！');
       }
+    })
+    .fail(function() {
+      alert('网络连接错误或服务器异常！')
+    })
+    .always(function() {
+      // console.log("complete");
     });
   }
 } 

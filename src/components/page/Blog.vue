@@ -4,47 +4,79 @@
     <TopNavBlack></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
     <div style="width:100%;height:115px;background:transparent"></div>
-    <!-- 行业覆盖 地区辐射 -->
+   <!-- 绿石研究院 -->
     <div class="aboutImg">
-      <img src="../../assets/images/banner3.png">
-    </div>
-    <div class="introduction">
-      <div class="introTitle">绿石研究院</div>
-      <div class="introLine">
-        <span></span>
-        <span class="two"></span>
-        <span class="three"></span>
+      <img src="../../assets/images/banner4.png">
+      <div class="aboutImgBox">
+        <div class="aboutChi">绿石研究院</div>
+        <div class="aboutEng">GS INSTITUTE</div>
       </div>
-      <div class="introEng">GS INSTITUTE</div>
     </div>
-    <!-- 地球网络 -->
-    <div class="net">
-      <img class="earth" src="../../assets/images/earth.png">
-      <ul class="address1">
-        <li>
-          <div class="addTop">最高人民法院六巡所在地</div>
-          <div class="addBottom">深圳、沈阳、郑州、南京、重庆、西安</div>
-        </li>
-        <li class="addressBox">
-          <div class="addressLeft">
-            <div class="addTop">京津冀</div>
-            <div class="addBottom">北京、天津、河北(石家庄)</div>
-          </div>
-          <div class="addressRight">
-            <div class="addTop">珠三角</div>
-            <div class="addBottom">广州、深圳、珠海</div>
-          </div>
-        </li>
-        <li>
-          <div class="addTop">长三角</div>
-          <div class="addBottom">上海、江苏(南京、无锡、常州、苏州、南通)、浙江(杭州、宁波、舟山、温州)、安徽(合肥)</div>
-        </li>
-        <li>
-          <div class="addTop">其他地区</div>
-          <div class="addBottom">福建（厦门、福州）、江西（南昌）、湖南（长沙）、广西（南宁）、海南（海口）、四川（成都、重庆）、贵州（贵阳）、云南（昆明）、黑龙江（哈尔滨）、吉林（长春、吉林）、辽宁（大连、沈阳）、内蒙古（呼和浩特）、新疆（乌鲁木齐）、陕西（西安）、青海（西宁）、宁夏（银川）、河南（郑州）、山西（太原）、甘肃（兰州）、山东（济南、青岛）、湖北（武汉、黄石）、西藏（拉萨）、中国香港、中国台北</div>
-        </li>
-      </ul>
+    <!-- 搜索框，新建按钮，团队介绍 -->
+    <div class="searchBox">
+      <div class="search">
+        <input type="text" name="search" class="searchInput" placeholder="请输入关键词" >
+        <span class="searchBtn">搜索</span>
+        <router-link tag="span" to="/Blog/BlogEdit" v-if="username" class="searchBtn">新建</router-link>
+      </div>
     </div>
+    <!-- 专家团队列表 -->
+    <ul class="searchList">
+      <li class="searchLi">
+        <div class="searchLeft">
+          <img src="../../assets/images/research.png">
+        </div>
+        <div class="searchRight">
+          <div class="searchRightTop">
+            <div class="title">破产重整与清算</div>
+            <div class="date">2018年10月18日</div>
+          </div>
+          <div class="searchIntroduction">
+            当事人之间不平等的财务资源存在着巨大的差异，给司法救济带来了障碍和不平衡，并使资金紧张的当事人所能获得的裁判结果发生偏离和扭曲...
+          </div>
+          <div v-if="username" class="searchEdit">
+            <span class="deleteBtn">删除</span>
+            <span class="editBtn">编辑</span>
+          </div>
+        </div>
+      </li>
+      <li class="searchLi">
+        <div class="searchLeft">
+          <img src="../../assets/images/research.png">
+        </div>
+        <div class="searchRight">
+          <div class="searchRightTop">
+            <div class="title">破产重整与清算</div>
+            <div class="date">2018年10月18日</div>
+          </div>
+          <div class="searchIntroduction">
+            当事人之间不平等的财务资源存在着巨大的差异，给司法救济带来了障碍和不平衡，并使资金紧张的当事人所能获得的裁判结果发生偏离和扭曲...
+          </div>
+          <div v-if="username" class="searchEdit">
+            <span class="deleteBtn">删除</span>
+            <span class="editBtn">编辑</span>
+          </div>
+        </div>
+      </li>
+      <li class="searchLi">
+        <div class="searchLeft">
+          <img src="../../assets/images/research.png">
+        </div>
+        <div class="searchRight">
+          <div class="searchRightTop">
+            <div class="title">破产重整与清算</div>
+            <div class="date">2018年10月18日</div>
+          </div>
+          <div class="searchIntroduction">
+            当事人之间不平等的财务资源存在着巨大的差异，给司法救济带来了障碍和不平衡，并使资金紧张的当事人所能获得的裁判结果发生偏离和扭曲...
+          </div>
+          <div v-if="username" class="searchEdit">
+            <span class="deleteBtn">删除</span>
+            <span class="editBtn">编辑</span>
+          </div>
+        </div>
+      </li>
+    </ul>
     <!-- 首页底部 -->
     <Bottom></Bottom>
   </div>
@@ -53,20 +85,29 @@
 </template>
 
 <script>
-import TopNavBlack from '@/components/common/TopNavBlack'
-import Bottom from '@/components/common/Bottom'
+import TopNavBlack from '@/components/common/TopNavBlack';
+import Bottom from '@/components/common/Bottom';
+import store from '@/vuex/store';
+import {mapState,mapMutations} from 'vuex';
+import axios from 'axios';
+
 export default {
   name: 'Blog',
+  store,
   data () {
     return {
     }
   },
+  computed:{
+    ...mapState(['username'])
+  },
   methods: {
     init: function(){
+      console.log(this.username);
     },
   },
   mounted:function(){
-    // this.init();
+    this.init();
   },
   components:{
     TopNavBlack,
@@ -77,7 +118,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/*行业覆盖 地区辐射*/
+/*关于我们图片*/
 .aboutImg{
   width: 100%;
   position: relative;
@@ -88,76 +129,147 @@ export default {
   position: relative;
   top: -89px;
 }
-.introduction{
-  width: 100%;
-  height:85px;
-  text-align: center;
-  margin: 0 auto;
-  background: #333;
-  padding-top: 25px;
+.aboutImgBox{
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -60px;
 }
-.introTitle{
+.aboutChi{
+  width: 120px;
+  height: 30px;
+  text-align: center;
   font-family: 'Medium';
   color: #fff;
-  font-size: 21px;
-  
+  font-size: 22px;
+  border-bottom: 1px solid #c49a6d;
 }
-.introLine{
-  font-size: 0;
-  margin: 2px 10px;
-}
-.introLine span{
-  width: 20px;
-  height: 1px;
-  background: #c49a6d;
-  display: inline-block;
-  margin-right: 10px;
-}
-.introLine span.two{
+.aboutEng{
   width: 120px;
-}
-.introLine span.three{
-  margin-right: 0;
-}
-.introEng{
+  height: 22px;
+  text-align: center;
   font-family: 'Regular';
   color: #fff;
-  font-size: 18px;
-  margin-bottom: 33px;
+  font-size: 16px;
 }
-/*地球网络*/
-.net{
-  width: 100%;
+/*搜索框，新建按钮，团队介绍*/
+.searchBox{
+  width: 850px;
+  margin: 0 auto;
+  padding-top: 20px;
   position: relative;
 }
-.net .earth{
+.search{
   width: 100%;
-  display: block;
+  height: 35px;
 }
-.address1{
-  width: 75%;
-  position: absolute;
-  left: 18%;
-  bottom: 3%;
-  line-height: 1.5;
+.searchInput{
+  width: 470px;
+  height: 35px;
+  line-height: 33px;
+  padding-left: 10px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Normal';
+  color: #b1b1b1;
+  font-size: 14px;
+  border: 1px solid #ccc;
 }
-.addTop{
+.searchBtn{
+  width: 83px;
+  height: 33px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #c49a6d;
+  line-height: 33px;
+  font-family: 'Normal';
+  color: #c49a6d;
+  font-size: 14px;
+  margin-left: 75px;
+  cursor: pointer;
+}
+/*文章列表*/
+.searchList{
+  width: 850px;
+  margin: 0 auto;
+}
+.searchLi{
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+}
+.searchLeft{
+  width: 198px;
+  height: 130px;
+  margin-right: 20px;
+}
+.searchLeft img{
+  width: 100%;
+  height: 100%;
+}
+.searchRight{
+  width: 630px;
+  height: 130px;
+}
+.searchRightTop{
+  width: 100%;
+  padding-top: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.title{
+  width: 50%;
+  display: inline-block;
   font-family: 'Medium';
   color: #c49a6d;
+  font-size: 18px;
+  text-decoration: underline;
+}
+.date{
+  width: 49%;
+  display: inline-block;
+  text-align: right;
+  font-family: 'Normal';
+  color: #333;
   font-size: 15px;
 }
-.addBottom{
+.searchIntroduction{
+  width: 100%;
+  font-family: 'Normal';
+  color: #333;
+  font-size: 15px;
+  line-height: 27px;
+  text-indent: 30px;
+}
+.searchEdit{
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+.editBtn{
+  float: right;
+  width: 60px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
   font-family: 'Regular';
-  color: #fff;
+  color: #333;
   font-size: 15px;
-  margin-bottom: 10px;
 }
-.addressBox{
-  position: relative;
-}
-.addressRight{
-  position: absolute;
-  left: 30%;
-  top: 0;
+.deleteBtn{
+  float: right;
+  width: 60px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  font-family: 'Regular';
+  color: red;
+  font-size: 15px;
 }
 </style>
+

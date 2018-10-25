@@ -43,10 +43,14 @@
 </template>
 
 <script>
-import TopNavBlack from '@/components/common/TopNavBlack'
-import Bottom from '@/components/common/Bottom'
+import TopNavBlack from '@/components/common/TopNavBlack';
+import Bottom from '@/components/common/Bottom';
+import store from '@/vuex/store';
+import {mapState,mapMutations} from 'vuex';
+import axios from 'axios';
 export default {
   name: 'InforDetail',
+  store,
   data () {
     return {
       dName: '',
@@ -57,8 +61,12 @@ export default {
       dts: ''
     }
   },
+  computed:{
+    ...mapState[('username')]
+  },
   methods: {
     init: function(){
+      // console.log(this.username);
     },
     // ”lfdid”:诉讼基金ID   可空   int
     // ”dName”: 姓名      string
@@ -72,62 +80,57 @@ export default {
       var that = this;
       var url = '';
       var str = window.location.href;
-      console.log(str);
+      // console.log(str);
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = location.host
+        url = window.location.href
       }
-      $.ajax({
-          type: 'GET',
-          url: url + '/exp/QuerylfDemandDetail.do?lfdid='+lfdid,
-          success:function(data){
-            console.log(data);
-            that.dName = data.dName;
-            that.dStandard = data.dStandard;
-            that.ddesc = data.ddesc;
-            that.dMobile = data.dMobile;
-            that.dMail = data.dMail;
-            that.dts = new Date(data.ts).Format('yyyy-MM-dd hh:mm');
-            that.updateInforDetail(data.lfdid,data.dName,data.dMobile,data.dMail,data.dStandard,data.ddesc)
-          },
-          error:function(error){
-            alert('网络连接错误或服务器异常！');
-          }
-        });
+      axios.get(url + '/exp/QuerylfDemandDetail.do?lfdid='+lfdid)
+      .then(function(response){
+        // console.log(response.data);
+        var data = response.data;
+        that.dName = data.dName;
+        that.dStandard = data.dStandard;
+        that.ddesc = data.ddesc;
+        that.dMobile = data.dMobile;
+        that.dMail = data.dMail;
+        that.dts = new Date(data.ts).Format('yyyy-MM-dd hh:mm');
+        that.updateInforDetail(data.lfdid,data.dName,data.dMobile,data.dMail,data.dStandard,data.ddesc)
+      })
+      .catch(function(error){
+        alert('网络连接错误或服务器异常！')
+      })
     },
     // 更新某条需求状态为已读
     updateInforDetail: function(lfdid,dName,dMobile,dMail,dStandard,ddesc){
       var url = '';
       var str = window.location.href;
-      console.log(str);
+      var that = this;
+      // console.log(str);
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = location.host
+        url = window.location.href
       }
-      $.ajax({
-        type: 'POST',
-        url: url + '/exp/UpdatelfDemand.do',
-        data: JSON.stringify({
-          "lfdid": lfdid,
-          "dName": dName,
-          "dMobile": dMobile,
-          "dMail": dMail,
-          "dStandard": dStandard,
-          "ddesc": ddesc,
-          "dReply": 1
-        }),
-        success:function(data){
-          console.log(data);
-          if(data.c === 1000){
-            console.log('更新状态成功！');
-          }
-        },
-        error:function(error){
-          alert('网络连接错误或服务器异常！');
+      axios.post(url + '/exp/UpdatelfDemand.do',{
+        "lfdid": lfdid,
+        "dName": dName,
+        "dMobile": dMobile,
+        "dMail": dMail,
+        "dStandard": dStandard,
+        "ddesc": ddesc,
+        "dReply": 1
+      })
+      .then(function(response){
+        // console.log(response.data);
+        if(response.data.c === 1000){
+          // console.log('更新状态成功！');
         }
-      });
+      })
+      .catch(function(error){
+        alert('网络连接错误或服务器异常！')
+      })
     }
   },
   mounted:function(){

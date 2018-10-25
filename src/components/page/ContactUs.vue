@@ -18,8 +18,8 @@
       <div class="contactBox">
         <div class="contactLeft">
           <div class="leftTitle">诉讼资助联系方式</div>
-          <div class="leftTitleEng">Contact information</div>
-          <div class="leftMessage">电话：86 10 8075 8946<br/>微信公众号：诉讼资助<br/>邮箱：ying.cheng@green-stone.cn</div>
+          <div class="leftTitleEng">Contact Information</div>
+          <div class="leftMessage">微信公众号：诉讼资助<br/>邮箱：business@green-stone.cn</div>
           <div class="leftQrcode"><img src="../../assets/images/qrcode.png"></div>
         </div>
         <div class="contactRight">
@@ -37,7 +37,7 @@
             <input type="text" v-model.trim="clientSubject" name="" placeholder="诉讼标的">
           </div>
           <div class="rightTextarea">
-            <textarea cols="5" rows="3" v-model.trim="clientDemand" placeholder="需求描述">
+            <textarea cols="5" rows="3" v-model.trim="clientDemand" placeholder="案件情况和具体需求">
               
             </textarea>
           </div>
@@ -52,10 +52,14 @@
 </template>
 
 <script>
-import TopNavBlack from '@/components/common/TopNavBlack'
-import Bottom from '@/components/common/Bottom'
+import TopNavBlack from '@/components/common/TopNavBlack';
+import Bottom from '@/components/common/Bottom';
+import store from '@/vuex/store';
+import {mapState} from 'vuex';
+import axios from 'axios';
 export default {
   name: 'ContactUs',
+  store,
   data () {
     return {
       clientName: '',
@@ -65,9 +69,12 @@ export default {
       clientDemand: ''
     }
   },
+  computed:{
+    ...mapState(['uesrname'])
+  },
   methods: {
     init: function(){
-      $('#contact').show();
+      console.log(this.username);
     },
     submit: function(event) {
       if(!this.clientName){
@@ -99,35 +106,28 @@ export default {
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
-        url = location.host
+        url = window.location.href
       }
-      $.ajax({
-        type: 'POST',
-        url: url + '/exp/UpdatelfDemand.do',
-        data: JSON.stringify({
-          "lfdid": 0,
-          "dName": that.clientName,
-          "dMobile": that.clientTel,
-          "dMail": that.clientEmail,
-          "dStandard": that.clientSubject,
-          "ddesc": that.clientDemand,
-          "dReply": 0
-        }),
-        success:function(data){
-          console.log(data);
-          if(data.c === 1000){
-            alert('提交成功！')
-          }
-        },
-        error:function(error){
-          alert('网络连接错误或服务器异常！');
-        }
+      axios.post(url + '/exp/UpdatelfDemand.do', {
+        "lfdid": 0,
+        "dName": that.clientName,
+        "dMobile": that.clientTel,
+        "dMail": that.clientEmail,
+        "dStandard": that.clientSubject,
+        "ddesc": that.clientDemand,
+        "dReply": 0
+      })
+      .then(function (success) {
+        // console.log(success);
+        alert('提交成功！')
+      })
+      .catch(function (error) {
+        alert('网络连接错误或服务器异常！');
       });
+
     }
   },
-  computed:{
-    
-  },
+  
   mounted:function(){
     this.init();
   },
@@ -160,7 +160,7 @@ export default {
   margin-left: -50px;
 }
 .aboutChi{
-  width: 100px;
+  width: 120px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
@@ -169,7 +169,7 @@ export default {
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 100px;
+  width: 120px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';
@@ -179,14 +179,14 @@ export default {
 /*联系我们*/
 .contactBox{
   width: 800px;
-  height: 400px;
+  height: 500px;
   margin: 0 auto;
   padding-top: 45px;
 }
 .contactLeft{
   width: 200px;
   float: left;
-  margin-right: 200px;
+  margin-right: 100px;
 }
 .leftTitle{
   font-family: 'Medium';
@@ -213,7 +213,7 @@ export default {
   width: 110px;
 }
 .contactRight{
-  width: 400px;
+  width: 500px;
   float: left;
 }
 .rightTitle{
@@ -222,14 +222,14 @@ export default {
   font-size: 21px;
 }
 .rightInput{
-  width: 380px;
+  width: 480px;
   height: 29px;
   border: 1px solid #ccc;
   margin: 15px 0;
 }
 .rightInput input{
   border: none;
-  width: 378px;
+  width: 478px;
   height: 27px;
   line-height: 28px;
   font-family: 'Normal';
@@ -238,16 +238,16 @@ export default {
   text-indent: 10px;
 }
 .rightTextarea{
-  width: 380px;
-  height: 70px;
+  width: 480px;
+  height: 170px;
   border: 1px solid #ccc;
   margin: 15px 0;
 }
 .rightTextarea textarea{
   border: none;
   resize: none;
-  width: 376px;
-  height: 66px;
+  width: 476px;
+  height: 166px;
   line-height: 22px;
   font-family: 'Normal';
   color: #979797;

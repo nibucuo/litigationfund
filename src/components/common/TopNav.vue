@@ -29,16 +29,15 @@
       <router-link to="/" tag="div" class="topNavLeft">
         <img src="../../assets/images/logo.png"/>
       </router-link>
-      <!-- 此处有两个隐藏菜单（团队和博客），内容待定，同样还有TopNavBlack.vue文件需要修改 -->
       <ul class="topNav">
         <router-link to="/" tag="li" exact >首页</router-link>
         <router-link to="/AboutUs" tag="li" exact >关于我们</router-link>
         <router-link to="/Funding" tag="li" exact >资助</router-link>
+        <router-link to="/Team" style="display:none" tag="li" >团队/顾问</router-link>
         <router-link to="/Coverage" tag="li" exact >网络</router-link>
+        <router-link to="/Blog" style="display:none" tag="li" >绿石研究院</router-link>
         <router-link to="/Scenarios" tag="li" exact >应用场景</router-link>
         <router-link to="/Contact" tag="li" >联系我们</router-link>
-        <router-link to="/Team" style="display:none" tag="li" exact >团队/顾问</router-link>
-        <router-link to="/Blog" style="display:none" tag="li" exact >绿石研究院</router-link>
       </ul>
     </div>  
   </div>
@@ -56,6 +55,7 @@ export default {
     return {
     }
   },
+  props: ['bgColor'],
   computed: {
     ...mapState(['loginFlag','userTel','userPwd','username','ownUri']),
     userTel : {
@@ -77,7 +77,12 @@ export default {
   },
   methods: {
     ...mapMutations(['showLogin','closeLogin','login']),
-
+    init: function(){
+      console.log(this.bgColor);
+    }
+  },
+  mounted: function(){
+    this.init();
   }
 }
 </script>

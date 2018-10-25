@@ -25,20 +25,21 @@
       </div>
     </div>
     <!-- 顶部导航栏，左图右导航结构 -->
-    <div class="topNavBox">
+    <div v-bind:class="bgColor ==='white'?'topNavBoxWhite':'topNavBox'">
       <router-link to="/" tag="div" class="topNavLeft">
-        <img src="../../assets/images/logoBlank.png"/>
+        <img v-if="bgColor == 'white'" src="../../assets/images/logo.png"/>
+        <img v-else src="../../assets/images/logoBlank.png"/>
       </router-link>
       <!-- 此处有两个隐藏菜单（团队和博客），内容待定，同样还有TopNav.vue文件需要修改 -->
       <ul class="topNav">
         <router-link to="/" tag="li" exact >首页</router-link>
         <router-link to="/AboutUs" tag="li" exact >关于我们</router-link>
-        <router-link to="/Funding" tag="li" exact >资助</router-link>
-        <router-link to="/Coverage" tag="li" exact >网络</router-link>
+        <router-link to="/Funding" tag="li" exact >诉讼资助</router-link>
+        <router-link to="/Team" style="display:none" tag="li" >团队/顾问</router-link>
+        <router-link to="/Coverage" tag="li" exact >专业网络</router-link>
+        <router-link to="/Blog" style="display:none" tag="li" >绿石研究院</router-link>
         <router-link to="/Scenarios" tag="li" exact >应用场景</router-link>
         <router-link to="/Contact" tag="li" >联系我们</router-link>
-        <router-link to="/Team" style="display:none" tag="li" exact >团队/顾问</router-link>
-        <router-link to="/Blog" style="display:none" tag="li" exact >绿石研究院</router-link>
       </ul>
     </div>  
   </div>
@@ -50,12 +51,13 @@ import store from '@/vuex/store';
 import {mapState,mapMutations} from 'vuex';
 
 export default {
-  name: 'TopNav',
+  name: 'TopNavBlack',
   store,
   data () {
     return {
     }
   },
+  props: ['bgColor'],
   computed: {
     ...mapState(['loginFlag','userTel','userPwd','username','ownUri']),
     userTel : {
@@ -77,6 +79,12 @@ export default {
   },
   methods: {
     ...mapMutations(['showLogin','closeLogin','login']),
+    init:function(){
+      // console.log(this.bgColor);
+    }
+  },
+  mounted: function(){
+    this.init();
   },
   beforeRouteEnter (to, from, next) {
     // 在渲染该组件的对应路由被 confirm 前调用
@@ -247,12 +255,19 @@ export default {
   cursor: pointer;
 }
 /*顶部导航栏，左图右导航结构*/
+.topNavBoxWhite{
+  width: 100%;
+  height: 89px;
+  background: #fff;
+  position: fixed;
+  top: 26px;
+  left: 0;
+  z-index: 10;
+}
 .topNavBox{
   width: 100%;
   height: 89px;
   background: rgba(0,0,0,0.7);
-  position: relative;
-  z-index: 10;
   position: fixed;
   top: 26px;
   left: 0;
@@ -287,6 +302,9 @@ export default {
   text-align: center;
   cursor: pointer;
   color: #fff;
+}
+.topNavBoxWhite li{
+  color: #333;
 }
 .topNav li.active{
   color: #c49a6d;

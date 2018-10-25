@@ -53,6 +53,7 @@ import TopNavBlack from '@/components/common/TopNavBlack'
 import Bottom from '@/components/common/Bottom'
 import store from '@/vuex/store';
 import {mapState,mapMutations} from 'vuex';
+import axios from 'axios';
 
 
 export default {
@@ -68,7 +69,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['loginFlag','userTel','userPwd','username','ownUri']),
+    ...mapState(['username']),
     // 显示分页按钮
     showPageBtn:function() {
       let pageNum = this.pages; // 总页数
@@ -105,7 +106,7 @@ export default {
       var that = this;
       // 判断是否登录获取到用户名，如果没有，则不显示 
       if(!that.username) return;
-      console.log(page);
+      // console.log(page);
       //时间格式化
       Date.prototype.Format = function(fmt)   
       { //author: meizz   
@@ -133,62 +134,68 @@ export default {
       // ”ddesc”: 需求描述    string  
       // ”dReply”: 是否已回复  0 否  1 是    int
       var url = '';
-      var str = window.location.href;
-      console.log(str);
+      var str = window.location.host;
+      var that = this;
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
         url = location.host
       }
-      $.ajax({
-        type: 'GET',
-        url: url + '/exp/QuerylfDemand.do?page='+page+'&count=5',
-        success:function(data){
-          console.log(data);
-          if(data.c === 1000){
-            that.commandList = data.lfdl;
-            that.pages = Math.ceil(data.num/5);
-            console.log('pages:'+that.pages);
-            // 修改时间戳为时间格式
-            for (var i = 0; i < that.commandList.length; i++) {
-              that.commandList[i].ts = new Date(that.commandList[i].ts).Format('yyyy-MM-dd hh:mm')
-            }
-          }
-        },
-        error:function(error){
-          alert('网络连接错误或服务器异常！');
+      // console.log(that);
+      axios.get(url+'/exp/QuerylfDemand.do?page='+page+'&count=5')
+      .then(function (response) {
+        console.log(response.data);
+        that.commandList = response.data.lfdl;
+        that.pages = Math.ceil(response.data.num/5);
+        console.log('pages:'+that.pages);
+        // 修改时间戳为时间格式
+        for (var i = 0; i < that.commandList.length; i++) {
+          that.commandList[i].ts = new Date(that.commandList[i].ts).Format('yyyy-MM-dd hh:mm')
         }
+      })
+      .catch(function (error) {
+        alert('网络连接错误或服务器异常！');
       });
     },
     // 删除某条需求
     deleteCommand: function(lfdid){
-      console.log(lfdid);
+      // console.log(lfdid);
       var that = this;
       var confirm = window.confirm('确定要删除么？');
       var url = '';
-      var str = window.location.href;
-      console.log(str);
+      var str = window.location.host;
+      // console.log(str);
       if(str.indexOf('localhost')>-1){
         url = 'http://www.lvshikaimen.com'
       }else{
         url = location.host
       }
-      console.log(url);
       if(confirm){
         $.ajax({
+          url: url+'exp/DellfDemand.do',
           type: 'POST',
-          url: url + '/exp/DellfDemand.do',
-          data: JSON.stringify({
-            lfdid: lfdid
-          }),
-          success:function(data){
-            console.log(data);
-            that.getInforList(that.pageIndex);
-          },
-          error:function(error){
-            alert('网络连接错误或服务器异常！');
-          }
+          data: JSON.stringify({"lfdid": lfdid}),
+        })
+        .done(function() {
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
         });
+        
+        // axios.post(url+'exp/DellfDemand.do',{
+        //   "lfdid": lfdid
+        // })
+        // .then(function(response){
+        //   console.log(response);
+        //   // that.getInforList(that.pageIndex);
+        // })
+        // .catch(function(){
+        //   alert('网络连接错误或服务器异常！');
+        // })
       }
     },
     // 跳转到某一页

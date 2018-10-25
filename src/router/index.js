@@ -9,7 +9,10 @@ import Coverage from '@/components/page/Coverage'
 import Scenarios from '@/components/page/Scenarios'
 import ContactUs from '@/components/page/ContactUs'
 import Team from '@/components/page/Team'
+import TeamEdit from '@/components/page/TeamEdit'
 import Blog from '@/components/page/Blog'
+import BlogEdit from '@/components/page/BlogEdit'
+import BlogDetail from '@/components/page/BlogDetail'
 import InforList from '@/components/page/InforList'
 import InforDetail from '@/components/page/InforDetail'
 import Error from '@/components/page/Error'
@@ -45,8 +48,20 @@ export default new Router({
       component: Team
     },
     {
+      path: '/Team/TeamEdit',
+      component: TeamEdit
+    },
+    {
       path: '/Blog',
       component: Blog
+    },
+    {
+      path: '/Blog/BlogEdit',
+      component: BlogEdit
+    },
+    {
+      path: '/Blog/BlogDetail',
+      component: BlogDetail
     },
     {
       path: '/Contact',
@@ -79,5 +94,6 @@ export default new Router({
   // 窗口滚动到顶部
   scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
+    console.log('轮播图滚动会影响么');
   }
 })

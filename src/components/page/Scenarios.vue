@@ -9,7 +9,7 @@
       <img src="../../assets/images/banner2.png">
       <div class="aboutImgBox">
         <div class="aboutChi">应用场景</div>
-        <div class="aboutEng">SCENARIOS</div>
+        <div class="aboutEng">CASE SCENARIOS</div>
       </div>
       
     </div>
@@ -19,21 +19,21 @@
         <div class="caseListLeft"><img src="../../assets/images/case1.png"></div>
         <div class="caseListRight">
           <div class="caseTitle">案例1</div>
-          <div class="caseContent">某企业及其创始人因在建工程陷入财务困境，但对其原股东有巨额诉权且案情复杂，诉讼资助使其聘请到了一流的律师团队并启动司法救济。</div>
+          <div class="caseContent">某企业及其创始人因在建工程陷入财务困境，但对其原股东有巨额诉权且案情复杂，诉讼资助使其聘请到了一流的律师团队并启动司法救济，向原股东追索出资和挪用资金。</div>
         </div>
       </li>
       <li>
         <div class="caseListLeft"><img src="../../assets/images/case2.png"></div>
         <div class="caseListRight">
           <div class="caseTitle">案例2</div>
-          <div class="caseContent">某创业公司被诉知识产权侵权，通过诉讼资助找到了合适的知产律 师，并集中财力用于研发攻坚，成功抗辩、提起反诉并赢得赔偿。</div>
+          <div class="caseContent">某创业公司被诉知识产权侵权，通过诉讼资助找到了合适的知产律师并提供了诉讼成本垫资，创业公司得以集中财力用于研发和运营，同时在诉讼中成功抗辩、提起反诉并赢得赔偿。</div>
         </div>
       </li>
       <li>
         <div class="caseListLeft"><img src="../../assets/images/case3.png"></div>
         <div class="caseListRight">
           <div class="caseTitle">案例3</div>
-          <div class="caseContent">某上市公司创始人的遗产股份陷入股权纷争，继承人通过诉讼资助聘请公司法和资本市场专家型律师为其清理潜在的对赌代持、 低价转股等风险，明晰股权后二级市场解封，股份变现退出。</div>
+          <div class="caseContent">某上市公司创始人猝然离世，遗产陷入股权纷争，继承人通过诉讼资助聘请公司法和资本市场专家型律师为其清理潜在的对赌、代持、 低价转股等风险，明晰股权后二级市场解封变现退出。</div>
         </div>
       </li>
       <li>
@@ -93,15 +93,15 @@ export default {
   top: -89px;
 }
 .aboutImgBox{
-  width: 100px;
+  width: 180px;
   height: 60px;
   position: absolute;
   left: 50%;
   top: 40%;
-  margin-left: -50px;
+  margin-left: -90px;
 }
 .aboutChi{
-  width: 100px;
+  width: 180px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
@@ -110,7 +110,7 @@ export default {
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 100px;
+  width: 180px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';

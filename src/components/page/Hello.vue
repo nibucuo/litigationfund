@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
     <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
-    <TopNav></TopNav>
+    <TopNavBlack v-bind:bgColor="bgColor"></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
     <div style="width:100%;height:115px;background:#fff"></div>
     <!-- 图片轮播部分 -->
-    <div class="window" @mouseover="stop" @mouseout="play">
+    <div class="window" id="#window" @mouseover="stop" @mouseout="play">
       <transition-group tag="ul" class="container" name="image">
         <li v-for="(image,index) in imgData" :key="index" v-show="index===mark">
-          <img :src="image">
+          <img name="banner" :src="image">
         </li>
       </transition-group>
       <div class="left" @click="left" >
@@ -82,23 +82,16 @@
     <!-- 支持 -->
     <div class="support">
       <div class="introduction">
-        <div class="introTitle">支持</div>
+        <div class="introTitle">专业支持</div>
         <div class="introLine">
           <span></span>
           <span class="two"></span>
           <span class="three"></span>
         </div>
-        <div class="introEng">SUPPORT</div>
+        <div class="introEng">PROFESSIONAL SUPPORT</div>
       </div>
       <div class="introListBox">
         <img src="../../assets/images/support.png">
-        <ul class="introList">
-          <li>风险评估</li>
-          <li>尽调论证</li>
-          <li>诉讼资助</li>
-          <li>资源支持</li>
-          <li>胜诉回款</li>
-        </ul>
       </div> 
     </div>
     <!-- 申请资助 -->
@@ -109,7 +102,7 @@
 </template>
 
 <script>
-import TopNav from '@/components/common/TopNav'
+import TopNavBlack from '@/components/common/TopNavBlack'
 import ApplyFunding from '@/components/common/ApplyFunding'
 import Bottom from '@/components/common/Bottom'
 export default {
@@ -122,23 +115,29 @@ export default {
       imgData: [
         'http://dist.green-stone.cn/common/font/banner.png',
         'http://dist.green-stone.cn/common/font/banner2.png'
-      ]
+      ],
+      bgColor: 'white'
     }
   },
   components:{
-    TopNav,
+    TopNavBlack,
     Bottom,
     ApplyFunding
   },
   methods:{
     init:function(){
       // 设置图片轮播容器高度 图片原尺寸：1366*570
-      var windowHeight = $(window).width();
-      var imgHeight = (570/1366)*windowHeight;
+      var windowWidth = window.innerWidth;
+      // 获取图片高度
+      var imgHeight = (570/1366)*windowWidth;
       // console.log(imgHeight);
-      $('.window').height(imgHeight);
-      // console.log($('.window').height());
-      $('.container img').height(imgHeight)
+      // 设置轮播图盒子高度
+      document.getElementById('#window').style.height = imgHeight+'px';
+      // 设置轮播图片高度
+      // var banners = document.getElementsByName('banner');
+      // banners.forEach(function(item,index){
+      //   item.style.height = imgHeight + 'px'
+      // })
     },
     // 通过底部按钮切换图片
     change:function(index){
@@ -303,7 +302,7 @@ export default {
   margin-right: 10px;
 }
 .introLine span.two{
-  width: 80px;
+  width: 180px;
 }
 .introLine span.three{
   margin-right: 0;

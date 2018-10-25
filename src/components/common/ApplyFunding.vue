@@ -2,7 +2,7 @@
 	<!-- 申请资助 -->
   <div class="applyFunding">
     <img src="../../assets/images/applyFunding.png">
-    <div class="applyTitle">让我们承担您的诉讼风险</div>
+    <div class="applyTitle">我们分担您的诉讼风险</div>
     <router-link tag="div" to="/Contact" class="applyButton">申请资助</router-link>
   </div>
 </template>

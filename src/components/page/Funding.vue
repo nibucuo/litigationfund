@@ -8,21 +8,12 @@
     <div class="aboutImg">
       <img src="../../assets/images/banner3.png">
       <div class="aboutImgBox">
-        <div class="aboutChi">资助</div>
-        <div class="aboutEng">FUNDING</div>
+        <div class="aboutChi">诉讼资助</div>
+        <div class="aboutEng">LITIGATION FUNDING</div>
       </div>
       
     </div>
     <div class="litigation">
-      <div class="introduction">
-        <div class="introTitle">诉讼资助</div>
-        <div class="introLine">
-          <span></span>
-          <span class="two"></span>
-          <span class="three"></span>
-        </div>
-        <div class="introEng">FUNDING</div>
-      </div>
       <div class="litigationImgBox">
         <div class="litigationLeft">保全费</div>
         <div class="litigationLeftBox"></div>
@@ -35,13 +26,13 @@
     <div class="funding">
       <!-- <img src="../../assets/images/lightBg.png"> -->
       <div class="introduction">
-        <div class="introTitle">诉讼资助</div>
+        <div class="introTitle">阶段和类型</div>
         <div class="introLine">
           <span></span>
           <span class="two"></span>
           <span class="three"></span>
         </div>
-        <div class="introEng">FUNDING</div>
+        <div class="introEng">PHASE AND CATEGORIES</div>
       </div>
       <ul class="phase">
         <li class="phaseLine">————</li>
@@ -156,15 +147,15 @@ export default {
   top: -89px;
 }
 .aboutImgBox{
-  width: 100px;
+  width: 180px;
   height: 60px;
   position: absolute;
   left: 50%;
   top: 40%;
-  margin-left: -50px;
+  margin-left: -90px;
 }
 .aboutChi{
-  width: 100px;
+  width: 180px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
@@ -173,7 +164,7 @@ export default {
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 100px;
+  width: 180px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';
@@ -183,7 +174,7 @@ export default {
 /*诉讼资助*/
 .litigation{
   width: 100%;
-  height: 500px;
+  height: 413px;
   background: #f0f0f0;
   padding-top: 40px;
 }
@@ -197,7 +188,6 @@ export default {
   font-family: 'Medium';
   color: #333;
   font-size: 21px;
-  
 }
 .introLine{
   font-size: 0;
@@ -211,7 +201,7 @@ export default {
   margin-right: 10px;
 }
 .introLine span.two{
-  width: 80px;
+  width: 180px;
 }
 .introLine span.three{
   margin-right: 0;
