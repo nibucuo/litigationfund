@@ -93,15 +93,15 @@ export default {
   top: -89px;
 }
 .aboutImgBox{
-  width: 180px;
+  width: 160px;
   height: 60px;
   position: absolute;
   left: 50%;
   top: 40%;
-  margin-left: -90px;
+  margin-left: -80px;
 }
 .aboutChi{
-  width: 180px;
+  width: 160px;
   height: 30px;
   text-align: center;
   font-family: 'Medium';
@@ -110,7 +110,7 @@ export default {
   border-bottom: 1px solid #c49a6d;
 }
 .aboutEng{
-  width: 180px;
+  width: 160px;
   height: 22px;
   text-align: center;
   font-family: 'Regular';

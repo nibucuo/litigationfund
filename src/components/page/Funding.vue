@@ -15,11 +15,7 @@
     </div>
     <div class="litigation">
       <div class="litigationImgBox">
-        <div class="litigationLeft">保全费</div>
-        <div class="litigationLeftBox"></div>
         <div class="litigationImg"><img src="../../assets/images/circles.png"></div>
-        <div class="litigationRight">审计费、鉴定费、<br/>公证费、评估费、<br/>拍卖费</div>
-        <div class="litigationRightBox"></div>
       </div>
     </div>
     <!-- 资助阶段 -->
@@ -217,23 +213,6 @@ export default {
   height: 360px;
   position: relative;
 }
-.litigationLeft{
-  position: absolute;
-  left: 28%;
-  top: 64%;
-  font-family: 'Regular';
-  color: #333;
-  font-size: 16px;
-}
-.litigationLeftBox{
-  width: 230px;
-  height: 250px;
-  position: absolute;
-  left: 32%;
-  top: 40%;
-  background: transparent;
-  z-index: 2;
-}
 .litigationImg{
   position: absolute;
   left: 0;
@@ -244,24 +223,6 @@ export default {
 }
 .litigationImg img{
   height: 100%;
-}
-.litigationRight{
-  width: 180px;
-  position: absolute;
-  right: 18%;
-  top: 57%;
-  font-family: 'Regular';
-  color: #333;
-  font-size: 16px;
-}
-.litigationRightBox{
-  width: 230px;
-  height: 250px;
-  position: absolute;
-  right: 32%;
-  top: 40%;
-  background: transparent;
-  z-index: 2;
 }
 /*<!-- 资助阶段 -->*/
 .funding{
