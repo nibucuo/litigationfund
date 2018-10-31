@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     init: function(){
-      console.log(this.username);
+      // console.log(this.username);
     },
     submit: function(event) {
       if(!this.clientName){
@@ -104,7 +104,7 @@ export default {
       var url = '';
       var str = window.location.origin;
       if(str.indexOf('localhost')>-1){
-        url = 'http://www.lvshikaimen.com'
+        url = 'http://t-www.susongzizhu.cn/'
       }else{
         url = window.location.origin
       }

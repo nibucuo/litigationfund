@@ -82,7 +82,7 @@ export default {
       var str = window.location.origin;
       // console.log(str);
       if(str.indexOf('localhost')>-1){
-        url = 'http://www.lvshikaimen.com'
+        url = 'http://t-www.susongzizhu.cn/'
       }else{
         url = window.location.origin
       }
@@ -109,7 +109,7 @@ export default {
       var that = this;
       // console.log(str);
       if(str.indexOf('localhost')>-1){
-        url = 'http://www.lvshikaimen.com'
+        url = 'http://t-www.susongzizhu.cn/'
       }else{
         url = window.location.origin
       }

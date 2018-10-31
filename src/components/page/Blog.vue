@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     init: function(){
-      console.log(this.username);
+      // console.log(this.username);
     },
   },
   mounted:function(){

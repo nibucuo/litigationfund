@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     init: function(){
-      console.log(this.username);
+      // console.log(this.username);
     },
     // 获取需求列表
     getInforList: function(page){
@@ -137,17 +137,17 @@ export default {
       var str = window.location.origin;
       var that = this;
       if(str.indexOf('localhost')>-1){
-        url = 'http://www.lvshikaimen.com'
+        url = 'http://t-www.susongzizhu.cn/'
       }else{
         url = location.origin
       }
       // console.log(that);
       axios.get(url+'/exp/QuerylfDemand.do?page='+page+'&count=5')
       .then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         that.commandList = response.data.lfdl;
         that.pages = Math.ceil(response.data.num/5);
-        console.log('pages:'+that.pages);
+        // console.log('pages:'+that.pages);
         // 修改时间戳为时间格式
         for (var i = 0; i < that.commandList.length; i++) {
           that.commandList[i].ts = new Date(that.commandList[i].ts).Format('yyyy-MM-dd hh:mm')
@@ -166,36 +166,21 @@ export default {
       var str = window.location.origin;
       // console.log(str);
       if(str.indexOf('localhost')>-1){
-        url = 'http://www.lvshikaimen.com'
+        url = 'http://t-www.susongzizhu.cn/'
       }else{
         url = location.origin
       }
       if(confirm){
-        $.ajax({
-          url: url+'exp/DellfDemand.do',
-          type: 'POST',
-          data: JSON.stringify({"lfdid": lfdid}),
+        axios.post(url+'/exp/DellfDemand.do',{
+          "lfdid": lfdid
         })
-        .done(function() {
-          console.log("success");
+        .then(function(response){
+          // console.log(response);
+          that.getInforList(that.pageIndex);
         })
-        .fail(function() {
-          console.log("error");
+        .catch(function(){
+          alert('网络连接错误或服务器异常！');
         })
-        .always(function() {
-          console.log("complete");
-        });
-        
-        // axios.post(url+'exp/DellfDemand.do',{
-        //   "lfdid": lfdid
-        // })
-        // .then(function(response){
-        //   console.log(response);
-        //   // that.getInforList(that.pageIndex);
-        // })
-        // .catch(function(){
-        //   alert('网络连接错误或服务器异常！');
-        // })
       }
     },
     // 跳转到某一页
@@ -213,8 +198,8 @@ export default {
     },
     // 跳转到下一页
     gotoNext: function(){
-      console.log(this.pageIndex);
-      console.log(this.pages);
+      // console.log(this.pageIndex);
+      // console.log(this.pages);
       this.pageIndex += 1;
       if(this.pageIndex > this.pages-1){
         this.pageIndex = this.pages-1;

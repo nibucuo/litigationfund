@@ -61,11 +61,11 @@ const mutations = {
     }
 
     var server = '';
-    var str = window.location.href;
+    var str = window.location.origin;
     if(str.indexOf('localhost')>-1){
-      server = 'http://www.lvshikaimen.com/'
+      server = 'http://t-www.susongzizhu.cn//'
     }else{
-      server =window.location.href + '/'
+      server =window.location.origin + '/'
     }
     var tempHost = server.split('//')[1];
     var host = tempHost.replace('/','');
