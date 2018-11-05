@@ -3,7 +3,7 @@
     <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
     <TopNavBlack></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
-    <div style="width:100%;height:115px;background:transparent"></div>
+    <div style="width:100%;height:115px;background:transparent;position:relative;"></div>
     <div id="contact">
       <!-- 联系我们图片 -->
       <div class="aboutImg">
@@ -19,7 +19,7 @@
         <div class="contactLeft">
           <div class="leftTitle">诉讼资助联系方式</div>
           <div class="leftTitleEng">Contact Information</div>
-          <div class="leftMessage">微信公众号：诉讼资助<br/>邮箱：business@green-stone.cn</div>
+          <div class="leftMessage">电邮：business@green-stone.cn<br/>微信公众号：诉讼资助</div>
           <div class="leftQrcode"><img src="../../assets/images/qrcode.png"></div>
         </div>
         <div class="contactRight">
@@ -184,9 +184,8 @@ export default {
   padding-top: 45px;
 }
 .contactLeft{
-  width: 200px;
+  width: 300px;
   float: left;
-  margin-right: 100px;
 }
 .leftTitle{
   font-family: 'Medium';

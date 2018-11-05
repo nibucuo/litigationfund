@@ -3,7 +3,7 @@
     <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
     <TopNavBlack></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
-    <div style="width:100%;height:115px;background:transparent"></div>
+    <div style="width:100%;height:115px;background:transparent;position:relative;"></div>
     <!-- 团队／顾问 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner2.png">
@@ -80,12 +80,12 @@ export default {
   top: -89px;
 }
 .aboutImgBox{
-  width: 100px;
+  width: 120px;
   height: 60px;
   position: absolute;
   left: 50%;
   top: 40%;
-  margin-left: -50px;
+  margin-left: -60px;
 }
 .aboutChi{
   width: 120px;
@@ -109,7 +109,6 @@ export default {
   width: 856px;
   height: auto;
   margin: 0 auto 20px;
-  position: relative;
 }
 .imgBox{
   width: 856px;

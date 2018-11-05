@@ -5,7 +5,7 @@
       <span class="welcome">您好，欢迎来到绿石诉讼资助！</span>
       <span class="login" v-show="!username" @click="showLogin">登录</span>
       <router-link tag="span" to="/Contact/InforList" class="login" v-show="username" >{{username}}</router-link>
-      <span class="language"><span>English</span>/<span class="active">中文</span></span>
+      <span class="language"><!-- <span>English</span>/ --><span class="active">中文</span></span>
     </div>
     <div v-show="loginFlag" class="loginBg">
       <div class="loginBox">
@@ -146,7 +146,7 @@ export default {
 }
 .language span{
   margin: 0 10px;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 .language .active{
   color: #c49a6d;

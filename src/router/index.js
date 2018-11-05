@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Params from '@/components/Params'
 import Hello from '@/components/page/Hello'
-import TopNav from '@/components/common/TopNav'
 import AboutUs from '@/components/page/AboutUs'
 import Funding from '@/components/page/Funding'
 import Coverage from '@/components/page/Coverage'
@@ -94,6 +93,5 @@ export default new Router({
   // 窗口滚动到顶部
   scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
-    console.log('轮播图滚动会影响么');
   }
 })

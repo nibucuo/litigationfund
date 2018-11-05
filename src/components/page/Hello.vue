@@ -3,7 +3,7 @@
     <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
     <TopNavBlack v-bind:bgColor="bgColor"></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
-    <div style="width:100%;height:115px;background:#fff"></div>
+    <div style="width:100%;height:115px;background:#fff;position:relative;"></div>
     <!-- 图片轮播部分 -->
     <div class="window" id="#window" @mouseover="stop" @mouseout="play">
       <transition-group tag="ul" class="container" name="image">
@@ -127,17 +127,12 @@ export default {
   methods:{
     init:function(){
       // 设置图片轮播容器高度 图片原尺寸：1366*570
-      var windowWidth = window.innerWidth;
+      // var windowWidth = window.innerWidth;
       // 获取图片高度
-      var imgHeight = (570/1366)*windowWidth;
+      // var imgHeight = (570/1366)*windowWidth;
       // console.log(imgHeight);
       // 设置轮播图盒子高度
-      document.getElementById('#window').style.height = imgHeight+'px';
-      // 设置轮播图片高度
-      // var banners = document.getElementsByName('banner');
-      // banners.forEach(function(item,index){
-      //   item.style.height = imgHeight + 'px'
-      // })
+      // document.getElementById('#window').style.height = imgHeight+'px';
     },
     // 通过底部按钮切换图片
     change:function(index){
@@ -146,6 +141,7 @@ export default {
     // 图片轮播自动播放
     autoPlay:function(){
       this.mark++;
+      // console.log(window);
       // console.log(this.mark);
       if(this.mark == 2){
         this.mark = 0
@@ -177,7 +173,7 @@ export default {
         this.mark = 0
         return
       }
-    },
+    }
   },
   mounted: function(){
     this.init();
@@ -211,6 +207,8 @@ export default {
   height: 100%;
 }
 .container img{
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -390,96 +388,5 @@ export default {
   color: #c49a6d;
   font-size: 20px;
   font-family: 'Medium';
-}
-/*申请资助*/
-.applyFunding{
-  width: 100%;
-  position: relative;
-}
-.applyFunding img{
-  width: 100%;
-}
-.applyTitle{
-  position: absolute;
-  left: 24%;
-  color: #fff;
-  font-size: 26px;
-  font-family: 'Regular';
-  top: 130px;
-}
-.applyButton{
-  position: absolute;
-  right: 23%;
-  width: 123px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 18px;
-  font-family: 'Regular';
-  top: 124px;
-  background: #c49a6d;
-  text-align: center;
-}
-/*底部版权*/
-.bottom{
-  padding-top: 34px;
-  background: #333;
-}
-.bottomList{
-  width: 70%;
-  margin: 0 auto 20px;
-  display: flex;
-}
-.bottomListLogo{
-  width: 40%;
-  margin-right: 20%;
-}
-
-.bottomListLogo div{
-  color: #cacaca;
-  font-size: 12px;
-  font-family: 'Normal';
-  transform: scale(0.75);
-}
-.bottomListLogo img{
-  text-align: left;
-  margin-left: 0;
-  transform: scale(1);
-  height: 56px;
-}
-.bottomListTel{
-  width: 20%;
-  margin-right: 10%;
-  padding-top: 30px;
-  color: #cacaca;
-  font-size: 12px;
-  font-family: 'Regular';
-}
-.bottomListTel .bottomListContactUs{
-  color: #cacaca;
-  font-size: 13px;
-  font-family: 'Medium';
-}
-.bottomListQrcode{
-  width: 12%;
-}
-.bottomListQrcode img{
-  width: 100%;
-}
-.bottomLine{
-  width: 95%;
-  height: 1px;
-  background: #cacaca;
-  margin: 0 auto;
-}
-.bottomText{
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  color: #cacaca;
-  font-size: 12px;
-  font-family: 'Regular';
-  text-align: center;
 }
 </style>

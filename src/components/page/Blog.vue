@@ -3,7 +3,7 @@
     <!-- 顶部登录，中英文切换,顶部导航栏，左图右导航结构 -->
     <TopNavBlack></TopNavBlack>
     <!-- 顶部不占位，做一个占位空白 -->
-    <div style="width:100%;height:115px;background:transparent"></div>
+    <div style="width:100%;height:115px;background:transparent;position:relative;"></div>
    <!-- 绿石研究院 -->
     <div class="aboutImg">
       <img src="../../assets/images/banner4.png">
@@ -194,6 +194,7 @@ export default {
 .searchList{
   width: 850px;
   margin: 0 auto;
+  position: relative;
 }
 .searchLi{
   padding: 20px 0;
